@@ -6,11 +6,12 @@ import 'package:talker_flutter/talker_flutter.dart';
 final getIt = GetIt.instance;
 
 void main() {
-  bootStrap(() async {
-    final talker = Talker();
-    final router = AppRouter();
-    getIt.registerSingleton<AppRouter>(router);
-    getIt.registerSingleton<Talker>(talker);
+  final talker = TalkerFlutter.init();
+  final router = AppRouter();
+  getIt.registerSingleton<Talker>(talker);
+  getIt.registerSingleton<AppRouter>(router);
+
+  bootStrap(talker, () {
     return App();
   });
 }
