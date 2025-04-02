@@ -5,7 +5,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 
 final getIt = GetIt.instance;
 
-void main() {
+Future<void> main() async {
   final talker = TalkerFlutter.init();
   final router = AppRouter();
   getIt.registerSingleton<Talker>(talker);

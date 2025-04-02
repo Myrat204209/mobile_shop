@@ -7,6 +7,7 @@ environment:
   sdk: ^3.7.2
 
 dependencies:
+  sentry_flutter: ^8.14.1
   flutter:
     sdk: flutter
   
@@ -27,6 +28,7 @@ dependencies:
   auto_route: ^10.0.1
 
 dev_dependencies:
+  sentry_dart_plugin: ^2.4.1
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
@@ -35,3 +37,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+sentry:
+  upload_debug_symbols: true
+  upload_source_maps: true
+  project: mobile-shop
+  org: iuhd
