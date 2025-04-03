@@ -1,1 +1,1 @@
-// TODO Implement this library.
+export 'product_api_client.dart';
