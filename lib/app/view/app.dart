@@ -7,6 +7,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) => AppView());
+    return LayoutBuilder(
+      builder: (context, constraints) => SafeArea(child: AppView()),
+    );
   }
 }
