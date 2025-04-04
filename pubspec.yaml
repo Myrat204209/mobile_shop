@@ -25,6 +25,7 @@ dependencies:
   talker_dio_logger: ^4.7.1
   talker: ^4.7.1
   get_it: ^8.0.3
+
   auto_route: ^10.0.1
   retrofit: ^4.4.2
 

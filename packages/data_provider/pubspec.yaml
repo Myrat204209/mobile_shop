@@ -13,11 +13,13 @@ dependencies:
   talker_dio_logger: ^4.7.1
   talker_flutter: ^4.7.1
   retrofit: ^4.4.2
+  json_annotation: ^4.9.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  json_serializable: ^6.9.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
