@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_shop/home/home.dart';
+import 'package:mobile_shop/features/features.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
