@@ -7,6 +7,16 @@ class AppRouter extends RootStackRouter {
   RouteType get defaultRouteType => RouteType.adaptive();
   @override
   List<AutoRoute> get routes => [
-    AutoRoute(page: HomeRoute.page, initial: true),
+    AutoRoute(
+      page: AppBottomNavigation.page,
+      initial: true,
+      children: [
+        AutoRoute(page: HomeRoute.page),
+        AutoRoute(page: CategoriesRoute.page),
+        AutoRoute(page: BeveragesRoute.page),
+        AutoRoute(page: DiscountRoute.page),
+        AutoRoute(page: ProfileRoute.page),
+      ],
+    ),
   ];
 }
