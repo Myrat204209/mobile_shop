@@ -5,29 +5,29 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'connection_event.dart';
-part 'connection_state.dart';
+part 'connectivity_event.dart';
+part 'connectivity_state.dart';
 
-class ConnectionBloc extends Bloc<ConnectionEvent, ConnectionState> {
+class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
   final Connectivity _connectivity;
   StreamSubscription<List<ConnectivityResult>>? _connectivitySubscription;
-  ConnectionBloc({Connectivity? connectivity})
+  ConnectivityBloc({Connectivity? connectivity})
     : _connectivity = connectivity ?? Connectivity(),
-      super(ConnectionInitial()) {
-    on<ConnectionObserve>(_onObserve);
-    on<_ConnectionChanged>(_onChanged);
-    add(ConnectionObserve());
+      super(ConnectivityInitial()) {
+    on<ConnectivityObserve>(_onObserve);
+    on<_ConnectivityChanged>(_onChanged);
+    add(ConnectivityObserve());
   }
 
   FutureOr<void> _onObserve(
-    ConnectionObserve event,
-    Emitter<ConnectionState> emit,
+    ConnectivityObserve event,
+    Emitter<ConnectivityState> emit,
   ) async {
     try {
       final initialResult = await _connectivity.checkConnectivity();
       _emitConnectivityState(initialResult, emit);
     } catch (e) {
-      emit(ConnectionOffline());
+      emit(ConnectivityOffline());
     }
     // Cancel any existing subscription before starting a new one
     await _connectivitySubscription?.cancel();
@@ -36,27 +36,27 @@ class ConnectionBloc extends Bloc<ConnectionEvent, ConnectionState> {
       List<ConnectivityResult> result,
     ) {
       // Add an internal event whenever the stream emits
-      add(_ConnectionChanged(result));
+      add(_ConnectivityChanged(result));
     });
   }
 
-  void _onChanged(_ConnectionChanged event, Emitter<ConnectionState> emit) {
-    _emitConnectivityState(event.connectionType, emit);
+  void _onChanged(_ConnectivityChanged event, Emitter<ConnectivityState> emit) {
+    _emitConnectivityState(event.connectivityType, emit);
   }
 
   void _emitConnectivityState(
     List<ConnectivityResult> results,
-    Emitter<ConnectionState> emit,
+    Emitter<ConnectivityState> emit,
   ) {
     if (results.contains(ConnectivityResult.mobile) ||
         results.contains(ConnectivityResult.wifi) ||
         results.contains(ConnectivityResult.ethernet) ||
         results.contains(ConnectivityResult.vpn)) {
-      emit(ConnectionOnline(results));
+      emit(ConnectivityOnline(results));
     } else if (results.contains(ConnectivityResult.none)) {
-      emit(ConnectionOffline());
+      emit(ConnectivityOffline());
     } else {
-      emit(ConnectionOffline());
+      emit(ConnectivityOffline());
     }
   }
 

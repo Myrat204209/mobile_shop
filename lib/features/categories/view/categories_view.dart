@@ -5,6 +5,6 @@ class CategoriesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text('Categories Page')));
+    return Center(child: Text('Categories Page'));
   }
 }

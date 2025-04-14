@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_shop/core/core.dart';
 import 'package:mobile_shop/features/features.dart';
 
 @RoutePage()
@@ -58,10 +60,42 @@ class AppBottomNavigation extends StatelessWidget {
                 label: 'Profile',
               ),
             ],
+
             selectedItemColor: Colors.orange,
             unselectedItemColor: Colors.grey,
             type: BottomNavigationBarType.fixed,
           ),
+          floatingActionButton:
+              BlocBuilder<ConnectivityBloc, ConnectivityState>(
+                builder: (context, connectivityState) {
+                  final bool showFab =
+                      connectivityState is! ConnectivityOffline;
+                  if (!showFab) {
+                    return const SizedBox.shrink();
+                  }
+                  return SizedBox(
+                    height: 35,
+                    width: 80,
+                    child: FloatingActionButton.extended(
+                      tooltip: ' Cart',
+                      backgroundColor: Colors.orange,
+                      foregroundColor: Colors.white,
+                      onPressed: () {
+                        final currentRouteName = tabsRouter.current.name;
+                        if (currentRouteName == HomeRoute.name) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Home FAB Action!')),
+                          );
+                        }
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      label: FittedBox(child: Text('Корзина')),
+                    ),
+                  );
+                },
+              ),
         );
       },
     );
