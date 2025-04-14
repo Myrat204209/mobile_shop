@@ -41,23 +41,23 @@ class AppBottomNavigation extends StatelessWidget {
             items: const [
               BottomNavigationBarItem(
                 icon: Icon(Icons.home_rounded),
-                label: 'Home',
+                label: 'Начало',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.category_rounded),
-                label: 'Categories',
+                label: 'Каталог',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.emoji_food_beverage_rounded),
-                label: 'Beverages',
+                label: 'Напитки',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.discount_rounded),
-                label: 'Discount',
+                label: 'Акции',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person_2_rounded),
-                label: 'Profile',
+                label: 'Профиль',
               ),
             ],
 
