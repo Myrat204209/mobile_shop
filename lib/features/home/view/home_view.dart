@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
   @override
+  State<HomeView> createState() => _HomeViewState();
+}
 
+class _HomeViewState extends State<HomeView> {
+  late final ScrollController _controller;
+  @override
+  void initState() {
+    _controller = ScrollController();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final _controller  = ScrollController();
     return CustomScrollView(
       controller: _controller,
       slivers: [
