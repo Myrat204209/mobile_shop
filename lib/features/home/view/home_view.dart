@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_shop/features/home/widgets/home_marquee_text.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -34,6 +35,13 @@ class _HomeViewState extends State<HomeView> {
               color: Colors.yellow,
               child: TextFormField(initialValue: 'Value'),
             ),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: SizedBox(
+            height: 20,
+            width: 360,
+            child: const HomeMarqueeText(),
           ),
         ),
         SliverList.builder(

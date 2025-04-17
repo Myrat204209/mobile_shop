@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:marquee/marquee.dart';
 
 class HomeMarqueeText extends StatelessWidget {
-  const HomeMarqueeText({super.key, required this.placemarkText});
+  const HomeMarqueeText({super.key, this.placemarkText});
   final String? placemarkText;
   @override
   Widget build(BuildContext context) {
