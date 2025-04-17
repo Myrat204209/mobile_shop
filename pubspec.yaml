@@ -10,7 +10,8 @@ dependencies:
   sentry_flutter: ^8.14.1
   flutter:
     sdk: flutter
-  
+  app_ui:
+    path: packages/app_ui
   data_provider: 
     path: packages/data_provider
   dio: ^5.8.0+1
