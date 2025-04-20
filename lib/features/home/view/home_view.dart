@@ -1,48 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_shop/features/home/widgets/home_marquee_text.dart';
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  late final ScrollController _controller;
-  @override
-  void initState() {
-    _controller = ScrollController();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      controller: _controller,
       slivers: [
         SliverAppBar(
           primary: true,
           centerTitle: true,
-          title: Text('Home'),
+          // leading: Container(
+          //   margin: EdgeInsets.only(top: 10),
+          //   color: Colors.amber,
+          //   child: HomeMarqueeText(),
+          // ),
+          // leadingWidth: 300,
+          title: SizedBox(height: 10, child: HomeMarqueeText(),),
+
+          // title: HomeMarqueeText(),
           floating: true,
-          backgroundColor: Colors.red,
           pinned: true,
-          snap: true,
-          bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(48),
-            child: ColoredBox(
-              color: Colors.yellow,
-              child: TextFormField(initialValue: 'Value'),
+          actions: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.notifications_none)),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.bookmark_border_outlined),
             ),
-          ),
-        ),
-        SliverToBoxAdapter(
-          child: SizedBox(
-            height: 20,
-            width: 360,
-            child: const HomeMarqueeText(),
-          ),
+          ],
+          snap: true,
+          // bottom: PreferredSize(
+          //   preferredSize: const Size.fromHeight(48),
+          //   child: TextFormField(initialValue: 'Value'),
+          // ),
         ),
         SliverList.builder(
           itemBuilder:
