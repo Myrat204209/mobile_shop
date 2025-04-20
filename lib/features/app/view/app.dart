@@ -14,8 +14,8 @@ class App extends StatelessWidget {
   final Connectivity _connectivity;
   @override
   Widget build(BuildContext context) {
-    final connectivityBloc = ConnectivityBloc(connectivity: _connectivity)
-      ..add(ConnectivityObserve());
+    final connectivityBloc = ConnectivityBloc(connectivity: _connectivity);
+      // ..add(ConnectivityObserve());
     return MultiBlocProvider(
       providers: [BlocProvider.value(value: connectivityBloc)],
       child: LayoutBuilder(

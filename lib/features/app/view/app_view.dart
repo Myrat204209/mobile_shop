@@ -2,7 +2,6 @@ import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobile_shop/features/features.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 class AppView extends StatefulWidget {
@@ -31,7 +30,10 @@ class _AppViewState extends State<AppView> {
       themeMode: ThemeMode.system,
       routerConfig: _router.config(
         navigatorObservers:
-            () => [TalkerRouteObserver(_talker), SentryNavigatorObserver()],
+            () => [
+              TalkerRouteObserver(_talker),
+              // SentryNavigatorObserver(),
+            ],
       ),
     );
   }

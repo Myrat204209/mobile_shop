@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
           //   child: HomeMarqueeText(),
           // ),
           // leadingWidth: 300,
-          title: SizedBox(height: 10, child: HomeMarqueeText(),),
+          title: SizedBox(height: 10, child: HomeMarqueeText()),
 
           // title: HomeMarqueeText(),
           floating: true,
