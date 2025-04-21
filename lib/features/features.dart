@@ -1,2 +1,13 @@
 export 'app/app.dart';
 export 'home/home.dart';
+export 'profile/profile.dart';
+export 'beverages/beverages.dart';
+export 'discount/discount.dart';
+export 'categories/categories.dart';
+export 'favorites/favorites.dart';
+export 'cart/cart.dart';
+export 'checkout/checkout.dart';
+export 'orders/orders.dart';
+export 'order_details/order_details.dart';
+export 'search/search.dart';  
+export 'notifications/notifications.dart';
