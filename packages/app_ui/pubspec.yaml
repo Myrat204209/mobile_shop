@@ -16,20 +16,9 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
 
-
 flutter:
   assets:
     - assets/
-  fonts:
-    - family: LobsterTwo
-      fonts:
-        - asset: assets/fonts/LobsterTwo-Bold.otf
-          weight: 700
-        - asset: assets/fonts/LobsterTwo-BoldItalic.otf
-          weight: 500
-          style: italic
-        - asset: assets/fonts/LobsterTwo-Regular.otf
-          weight: 400
-        - asset: assets/fonts/LobsterTwo-Italic.otf
-          weight: 300
-          style: italic
+  # fonts:
+    # - family: LobsterTwo
+    #   fonts:

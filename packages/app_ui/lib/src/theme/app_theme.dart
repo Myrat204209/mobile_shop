@@ -22,33 +22,30 @@ abstract class AppBaseTheme {
 
   /// Shared Input Decoration Theme
   InputDecorationTheme get inputDecorationTheme => InputDecorationTheme(
-        border: kAppOutlinedBorder,
-        focusedBorder: kAppOutlinedBorder,
-        enabledBorder: kAppOutlinedBorder,
-        filled: true,
-        contentPadding: EdgeInsets.zero,
-        labelStyle: TextStyle(color: colorScheme.onSurface),
-        hintStyle:
-            TextStyle(color: colorScheme.onSurface.withValues(alpha: 0.7)),
-      );
+    border: kAppOutlinedBorder,
+    focusedBorder: kAppOutlinedBorder,
+    enabledBorder: kAppOutlinedBorder,
+    filled: true,
+    contentPadding: EdgeInsets.zero,
+    labelStyle: TextStyle(color: colorScheme.onSurface),
+    hintStyle: TextStyle(color: colorScheme.onSurface.withValues(alpha: 0.7)),
+  );
 
   /// Shared Divider Theme
-  DividerThemeData get dividerTheme => const DividerThemeData(
-        color: AppColors.secondAccent,
-        thickness: 1,
-      );
+  DividerThemeData get dividerTheme =>
+      const DividerThemeData(color: AppColors.secondAccent, thickness: 1);
 
   /// Restores your original `AppTextStyle` for the `TextTheme`
   TextTheme get textTheme => TextTheme(
-        displayLarge: const AppTextStyle.text().pageTitleBold(),
-        displayMedium: const AppTextStyle.text().pageTitle(),
-        displaySmall: const AppTextStyle.text().contentTitle(),
-        headlineMedium: const AppTextStyle.text().pageTitle(),
-        headlineSmall: const AppTextStyle.text().contentTitle(),
-        titleLarge: const AppTextStyle.text().titleBold(),
-        titleMedium: const AppTextStyle.text().title(),
-        titleSmall: const AppTextStyle.text().description(),
-      );
+    displayLarge: const AppTextStyle.text().pageTitleBold(),
+    displayMedium: const AppTextStyle.text().pageTitle(),
+    displaySmall: const AppTextStyle.text().contentTitle(),
+    headlineMedium: const AppTextStyle.text().pageTitle(),
+    headlineSmall: const AppTextStyle.text().contentTitle(),
+    titleLarge: const AppTextStyle.text().title(),
+    titleMedium: const AppTextStyle.text().title(),
+    titleSmall: const AppTextStyle.text().description(),
+  );
 }
 
 /// Light Theme
@@ -69,7 +66,7 @@ class AppTheme extends AppBaseTheme {
           statusBarBrightness: Brightness.light,
           statusBarIconBrightness: Brightness.dark,
         ),
-        titleTextStyle: textTheme.titleLarge?.copyWith(fontFamily: 'Ubuntu'),
+        titleTextStyle: textTheme.titleLarge,
       ),
       textTheme: textTheme,
       iconTheme: iconTheme,

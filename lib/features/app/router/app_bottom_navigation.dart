@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_shop/core/core.dart';
@@ -40,11 +41,11 @@ class AppBottomNavigation extends StatelessWidget {
             // Define your navigation bar items
             items: const [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home_rounded),
+                icon: Icon(CupertinoIcons.home),
                 label: 'Начало',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.category_rounded),
+                icon: Icon(CupertinoIcons.square_grid_2x2),
                 label: 'Каталог',
               ),
               BottomNavigationBarItem(
@@ -56,7 +57,7 @@ class AppBottomNavigation extends StatelessWidget {
                 label: 'Акции',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person_2_rounded),
+                icon: Icon(CupertinoIcons.smiley),
                 label: 'Профиль',
               ),
             ],

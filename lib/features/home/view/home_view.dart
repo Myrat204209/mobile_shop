@@ -1,5 +1,7 @@
+import 'package:app_ui/app_ui.dart';
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
-import 'package:mobile_shop/features/home/widgets/home_marquee_text.dart';
+import 'package:mobile_shop/features/home/home.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -21,7 +23,7 @@ class HomeView extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   visualDensity: VisualDensity.compact,
                   onPressed: () {},
-                  icon: Icon(Icons.chevron_right_outlined),
+                  icon: Icon(CupertinoIcons.chevron_right),
                 ),
               ],
             ),
@@ -33,7 +35,7 @@ class HomeView extends StatelessWidget {
               padding: EdgeInsets.zero,
               visualDensity: VisualDensity.compact,
               onPressed: () {},
-              icon: Icon(Icons.notifications_none),
+              icon: Icon(CupertinoIcons.bell),
             ),
             IconButton(
               padding: EdgeInsets.zero,
@@ -49,19 +51,35 @@ class HomeView extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               child: SearchAnchor.bar(
-                barLeading: Icon(Icons.search),
+                barPadding: WidgetStatePropertyAll(EdgeInsets.only(left: 8)),
+                barLeading: Icon(CupertinoIcons.search, size: 30),
                 constraints: BoxConstraints(minHeight: 44),
                 barElevation: WidgetStatePropertyAll(0),
+                barHintText: 'Найти в Дикси',
+                barHintStyle: WidgetStatePropertyAll(
+                  AppTextStyle.text(color: Colors.grey),
+                ),
+
                 barShape: WidgetStatePropertyAll(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
                 ),
+
                 barTrailing: [
-                  VerticalDivider(color: Colors.grey, width: 1),
+                  SizedBox(
+                    height: 44,
+                    child: VerticalDivider(
+                      width: 1,
+                      color: Colors.grey.shade400,
+                      thickness: 2,
+                      indent: 8,
+                      endIndent: 8,
+                    ),
+                  ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.qr_code_scanner_outlined),
+                    icon: Icon(CupertinoIcons.barcode_viewfinder),
                   ),
                 ],
                 barSide: WidgetStatePropertyAll(BorderSide(color: Colors.grey)),
