@@ -90,12 +90,9 @@ class HomeView extends StatelessWidget {
             ),
           ),
         ),
-        SliverList.builder(
-          itemBuilder:
-              (context, index) => ListTile(title: Text('Index: $index')),
-          itemCount: 20,
-        ),
+        HomeFriendsSlider(),
       ],
     );
   }
 }
+
