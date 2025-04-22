@@ -34,6 +34,8 @@ dependencies:
   geocoding: ^3.0.0
   sentry_flutter: ^8.14.2
   cupertino_icons: ^1.0.8
+  mobile_scanner: ^6.0.9
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   sentry_dart_plugin: ^2.4.1

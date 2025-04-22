@@ -7,7 +7,11 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      slivers: [HomeLocationSearchAppBar(), HomeFriendsSlider()],
+      slivers: [
+        HomeLocationSearchAppBar(),
+        HomeFriendsSlider(),
+        HomeAdBanner(),
+      ],
     );
   }
 }
