@@ -21,10 +21,10 @@ class HomeFriendsSlider extends StatelessWidget {
                 style: AppTextStyle.text().titleBold(),
               ),
               contentPadding: EdgeInsets.zero,
-              trailing: IconButton(
-                onPressed: () {},
-                icon: Icon(CupertinoIcons.chevron_right),
-              ),
+              onTap: (){
+                // context.pushRoute(routes.friendsRoute());
+              },
+              trailing: Icon(CupertinoIcons.chevron_right),
             ),
             SizedBox(
               height: 100,

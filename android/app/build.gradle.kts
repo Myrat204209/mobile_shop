@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.arassanusga.mobile_shop"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = 35
     ndkVersion = "28.0.12674087"
 
     compileOptions {
@@ -23,7 +23,7 @@ android {
         applicationId = "com.arassanusga.mobile_shop"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = 21
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
@@ -36,6 +36,9 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+}
+dependencies {
+    implementation("com.google.mlkit:barcode-scanning:17.3.0")
 }
 
 flutter {

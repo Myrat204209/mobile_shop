@@ -11,6 +11,8 @@ class HomeView extends StatelessWidget {
         HomeLocationSearchAppBar(),
         HomeFriendsSlider(),
         HomeAdBanner(),
+
+        HomePacksCarousel(),
       ],
     );
   }
