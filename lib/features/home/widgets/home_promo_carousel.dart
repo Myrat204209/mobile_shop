@@ -1,56 +1,49 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 
 class HomePromoCarousel extends StatefulWidget {
-  // You would typically pass the data for the carousel items here
   final List<Widget> promoItems;
 
-  const HomePromoCarousel({
-    super.key,
-    required this.promoItems, // List of Widgets to display in the carousel
-  });
+  const HomePromoCarousel({super.key, required this.promoItems});
 
   @override
   State<HomePromoCarousel> createState() => _HomePromoCarouselState();
 }
 
 class _HomePromoCarouselState extends State<HomePromoCarousel> {
-  int _currentIndex = 0; // State variable to track the active index
+  int _currentIndex = 0;
   final _carouselController = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) {
-    // Use SliverToBoxAdapter to place this non-sliver widget inside CustomScrollView
     return SliverToBoxAdapter(
       child: Container(
-        // Add padding or margin around the whole component if needed
         padding: const EdgeInsets.symmetric(vertical: 16.0),
-        color: Colors.grey[200], // Background color similar to the image
+        color: Colors.grey[200],
         child: Column(
-          mainAxisSize: MainAxisSize.min, // Take minimum vertical space
+          mainAxisSize: MainAxisSize.min,
           children: [
             CarouselSlider(
               items: widget.promoItems,
-              carouselController: _carouselController,
+              controller: _carouselController,
               options: CarouselOptions(
-                height: 150.0, // Adjust height based on your banner design
-                autoPlay: true, // Optional: if you want auto-scrolling
+                height: 150.0,
+                autoPlay: true,
                 autoPlayInterval: const Duration(seconds: 5),
-                viewportFraction:
-                    0.9, // How much of next/prev items are visible
-                enlargeCenterPage: true, // Make the center item slightly larger
+                viewportFraction: 0.9,
+                enlargeCenterPage: true,
                 enlargeFactor: 0.1,
-                aspectRatio: 16 / 6, // Adjust aspect ratio for your banners
-                // Callback when page changes
+                aspectRatio: 16 / 6,
+
                 onPageChanged: (index, reason) {
                   setState(() {
-                    _currentIndex = index; // Update the active index
+                    _currentIndex = index;
                   });
                 },
               ),
             ),
-            const SizedBox(height: 10), // Space between carousel and indicators
-            // Build the indicators dynamically
+            const SizedBox(height: 10),
+
             _buildIndicators(),
           ],
         ),
@@ -58,7 +51,6 @@ class _HomePromoCarouselState extends State<HomePromoCarousel> {
     );
   }
 
-  // Helper method to build the indicator dots
   Widget _buildIndicators() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -76,12 +68,11 @@ class _HomePromoCarouselState extends State<HomePromoCarousel> {
                 ),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  // Use different color for the active dot
+
                   color:
                       _currentIndex == index
-                          ? Colors
-                              .orangeAccent // Active dot color
-                          : Colors.grey, // Inactive dot color
+                          ? Colors.orangeAccent
+                          : Colors.grey,
                 ),
               ),
             );

@@ -1,4 +1,5 @@
-import 'package:carousel_slider/carousel_slider.dart';
+
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 
 class HomePacksCarousel extends StatelessWidget {
