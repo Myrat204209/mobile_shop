@@ -8,6 +8,7 @@ final MobileScannerController controller = MobileScannerController();
 
 StreamSubscription<Object?>? _subscription;
 
+
 class ScannerView extends StatefulWidget {
   const ScannerView({super.key});
 
