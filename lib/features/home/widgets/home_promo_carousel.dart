@@ -60,15 +60,19 @@ class _HomePromoCarouselState extends State<HomePromoCarousel> {
             return GestureDetector(
               onTap: () => _carouselController.animateToPage(index),
               child: Container(
-                width: 8.0,
+                width: _currentIndex == index ? 18.0 : 8.0,
                 height: 8.0,
                 margin: const EdgeInsets.symmetric(
                   vertical: 8.0,
                   horizontal: 4.0,
                 ),
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-
+                  shape:
+                      _currentIndex == index
+                          ? BoxShape.rectangle
+                          : BoxShape.circle,
+                  borderRadius:
+                      _currentIndex == index ? BorderRadius.circular(5) : null,
                   color:
                       _currentIndex == index
                           ? Colors.orangeAccent
