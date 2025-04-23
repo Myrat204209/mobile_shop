@@ -21,21 +21,21 @@ class HomeFriendsSlider extends StatelessWidget {
                 style: AppTextStyle.text().titleBold(),
               ),
               contentPadding: EdgeInsets.zero,
-              onTap: (){
+              onTap: () {
                 // context.pushRoute(routes.friendsRoute());
               },
               trailing: Icon(CupertinoIcons.chevron_right),
             ),
             SizedBox(
-              height: 100,
+              height: 140,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 15,
+                itemCount: 3,
                 itemBuilder: (context, index) {
                   if (index == 0) {
                     return Container(
-                      width: 150,
-                      height: 100,
+                      width: 200,
+                      height: 120,
                       margin: EdgeInsets.only(right: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
