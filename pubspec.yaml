@@ -11,8 +11,8 @@ dependencies:
     sdk: flutter
   app_ui:
     path: packages/app_ui
-  # data_provider: 
-  #   path: packages/data_provider
+  data_provider: 
+    path: packages/data_provider
   # dio: ^5.8.0+1
   flutter_bloc: ^9.1.0
   # path_provider: ^2.1.5

@@ -53,7 +53,7 @@ class HomePacksCarousel extends StatelessWidget {
             (index) => Container(
               // width: 150,
               height: 150,
-              color: Colors.red,
+              color: Colors.red[100 * (index % 9 + 1)],
               alignment: Alignment.center,
               child: Text(index.toString()),
             ),
