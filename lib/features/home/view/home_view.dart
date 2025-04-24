@@ -23,6 +23,7 @@ class HomeView extends StatelessWidget {
         HomeUserSpecialsSlider(),
         HomeTitleListTile(title: 'Большой рекламный баннер.'),
         HomeAdBanner(isBanner: true),
+        HomeUserPurchasesCard(),
       ],
     );
   }
