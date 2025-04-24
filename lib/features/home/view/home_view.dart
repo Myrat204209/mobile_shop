@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_shop/features/home/home.dart';
 
@@ -10,11 +12,32 @@ class HomeView extends StatelessWidget {
       slivers: [
         HomeLocationSearchAppBar(),
         HomeFriendsSlider(),
+        HomeTitleListTile(title: 'Большой баннер.'),
         HomeAdBanner(),
+        HomeTitleListTile(title: 'Мини-баннер'),
         HomePacksCarousel(),
-        HomeAdBanner(isBanner: true),
+        HomeTitleListTile(title: 'Пролистывающийся баннер.'),
         HomePromoCarousel(promoItems: buildPromoItems()),
+        HomeTitleListTile(title: 'Блок с акционной продукцией'),
+        HomeDiscountsSlider(),
+        HomeUserSpecialsSlider(),
+        HomeTitleListTile(title: 'Большой рекламный баннер.'),
+        HomeAdBanner(isBanner: true),
       ],
+    );
+  }
+}
+
+class HomeTitleListTile extends StatelessWidget {
+  const HomeTitleListTile({super.key, required this.title});
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: ListTile(
+        title: Text(title, style: AppTextStyle.display().semiBold()),
+      ),
     );
   }
 }
