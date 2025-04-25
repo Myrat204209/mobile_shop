@@ -38,34 +38,23 @@ class AppTextStyle extends TextStyle {
     super.letterSpacing,
     super.color = AppColors.textColor,
   }) : super(
-          package: 'app_ui',
-          fontFamily: 'Inter',
-          decoration: TextDecoration.none,
-          textBaseline: TextBaseline.alphabetic,
-          height: height ??
-              (lineHeight == null ? null : lineHeight / (fontSize ?? 14)),
-          // leadingDistribution: TextLeadingDistribution.even,
-        );
+         package: 'app_ui',
+         fontFamily: 'Inter',
+         decoration: TextDecoration.none,
+         textBaseline: TextBaseline.alphabetic,
+         height:
+             height ??
+             (lineHeight == null ? null : lineHeight / (fontSize ?? 14)),
+         // leadingDistribution: TextLeadingDistribution.even,
+       );
 
   /// Typography default text style
-  const AppTextStyle.text({
-    Color? color,
-    double? fontSize,
-  }) : this(
-          textType: AppTextType.text,
-          color: color,
-          fontSize: fontSize,
-        );
+  const AppTextStyle.text({Color? color, double? fontSize})
+    : this(textType: AppTextType.text, color: color, fontSize: fontSize);
 
   /// Typography display text style
-  const AppTextStyle.display({
-    Color? color,
-    double? fontSize,
-  }) : this(
-          textType: AppTextType.display,
-          color: color,
-          fontSize: fontSize,
-        );
+  const AppTextStyle.display({Color? color, double? fontSize})
+    : this(textType: AppTextType.display, color: color, fontSize: fontSize);
 
   /// Is text display styled from typography
   final AppTextType textType;
@@ -113,54 +102,54 @@ extension AppTextStyleSizeExtension on AppTextStyle {
   ///  * display - `fontSize`: 72, `lineHeight`: 90
   ///  * text - default
   AppTextStyle xxl() => switch (textType) {
-        AppTextType.display => _copyWith(fontSize: 72, lineHeight: 90),
-        AppTextType.text => _copyWith(fontSize: 24, lineHeight: 32),
-      };
+    AppTextType.display => _copyWith(fontSize: 72, lineHeight: 90),
+    AppTextType.text => _copyWith(fontSize: 24, lineHeight: 32),
+  };
 
   /// `Size` - xl (extra large)
   ///
   ///  * display - `fontSize`: 60, `lineHeight`: 72
   ///  * text - `fontSize`: 20, `lineHeight`: 30
   AppTextStyle xl() => switch (textType) {
-        AppTextType.display => _copyWith(fontSize: 60, lineHeight: 72),
-        AppTextType.text => _copyWith(fontSize: 20, lineHeight: 30),
-      };
+    AppTextType.display => _copyWith(fontSize: 60, lineHeight: 72),
+    AppTextType.text => _copyWith(fontSize: 20, lineHeight: 30),
+  };
 
   /// `Size` - lg (large)
   ///
   ///  * display - `fontSize`: 48, `lineHeight`: 60
   ///  * text - `fontSize`: 18, `lineHeight`: 28
   AppTextStyle lg() => switch (textType) {
-        AppTextType.display => _copyWith(fontSize: 48, lineHeight: 60),
-        AppTextType.text => _copyWith(fontSize: 18, lineHeight: 28),
-      };
+    AppTextType.display => _copyWith(fontSize: 48, lineHeight: 60),
+    AppTextType.text => _copyWith(fontSize: 18, lineHeight: 28),
+  };
 
   /// `Size` - md (middle)
   ///
   ///  * display - `fontSize`: 36, `lineHeight`: 44
   ///  * text - `fontSize`: 16, `lineHeight`: 24
   AppTextStyle md() => switch (textType) {
-        AppTextType.display => _copyWith(fontSize: 36, lineHeight: 44),
-        AppTextType.text => _copyWith(fontSize: 16, lineHeight: 24),
-      };
+    AppTextType.display => _copyWith(fontSize: 36, lineHeight: 44),
+    AppTextType.text => _copyWith(fontSize: 16, lineHeight: 24),
+  };
 
   /// `Size` - sm (small)
   ///
   ///  * display - `fontSize`: 30, `lineHeight`: 38
   ///  * text - `fontSize`: 14, `lineHeight`: 20
   AppTextStyle sm() => switch (textType) {
-        AppTextType.display => _copyWith(fontSize: 30, lineHeight: 38),
-        AppTextType.text => _copyWith(fontSize: 14, lineHeight: 20),
-      };
+    AppTextType.display => _copyWith(fontSize: 30, lineHeight: 38),
+    AppTextType.text => _copyWith(fontSize: 14, lineHeight: 20),
+  };
 
   /// `Size` - xs (extra small)
   ///
   ///  * display - `fontSize`: 24, `lineHeight`: 32
   ///  * text - `fontSize`: 12, `lineHeight`: 18
   AppTextStyle xs() => switch (textType) {
-        AppTextType.display => _copyWith(fontSize: 24, lineHeight: 32),
-        AppTextType.text => _copyWith(fontSize: 12, lineHeight: 18),
-      };
+    AppTextType.display => _copyWith(fontSize: 24, lineHeight: 32),
+    AppTextType.text => _copyWith(fontSize: 12, lineHeight: 18),
+  };
 }
 
 /// App text style font weight variants extension
@@ -176,44 +165,32 @@ extension AppTextStyleFontWeightExtension on AppTextStyle {
 
   /// Font weight to bold - FontWeight.w700
   AppTextStyle bold() => _copyWith(fontWeight: AppFontWeight.bold);
+  AppTextStyle extrabold() => _copyWith(fontWeight: AppFontWeight.extraBold);
 }
 
 /// Material typography
 extension AppTextStyleMaterialExtension on AppTextStyle {
   /// Title Text Style
-  AppTextStyle title() => _copyWith(
-        fontSize: 16,
-        fontWeight: AppFontWeight.regular,
-        height: 1.22,
-      );
+  AppTextStyle title() =>
+      _copyWith(fontSize: 16, fontWeight: AppFontWeight.regular, height: 1.22);
 
   /// Description Text Style
-  AppTextStyle description() => _copyWith(
-        fontSize: 14,
-        fontWeight: AppFontWeight.regular,
-      );
+  AppTextStyle description() =>
+      _copyWith(fontSize: 14, fontWeight: AppFontWeight.regular);
 
   /// Page Title Text Style
-  AppTextStyle pageTitle() => _copyWith(
-        fontSize: 22,
-        fontWeight: AppFontWeight.regular,
-      );
+  AppTextStyle pageTitle() =>
+      _copyWith(fontSize: 22, fontWeight: AppFontWeight.regular);
 
   /// Page Title Text Style
-  AppTextStyle contentTitle() => _copyWith(
-        fontSize: 20,
-        fontWeight: AppFontWeight.regular,
-      );
+  AppTextStyle contentTitle() =>
+      _copyWith(fontSize: 20, fontWeight: AppFontWeight.regular);
 
   /// Title Bold Text Style
-  AppTextStyle titleBold() => _copyWith(
-        fontSize: 16,
-        fontWeight: AppFontWeight.bold,
-      );
+  AppTextStyle titleBold() =>
+      _copyWith(fontSize: 16, fontWeight: AppFontWeight.bold);
 
   /// Page Title Bold Text Style
-  AppTextStyle pageTitleBold() => _copyWith(
-        fontSize: 22,
-        fontWeight: AppFontWeight.bold,
-      );
+  AppTextStyle pageTitleBold() =>
+      _copyWith(fontSize: 22, fontWeight: AppFontWeight.bold);
 }
