@@ -4,8 +4,9 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 
 class HomeFriendsSlider extends StatelessWidget {
-  const HomeFriendsSlider({super.key});
+  const HomeFriendsSlider({super.key, required this.friends});
 
+  final List friends;
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
@@ -13,7 +14,6 @@ class HomeFriendsSlider extends StatelessWidget {
         padding: const EdgeInsets.only(left: 10),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ListTile(
@@ -87,7 +87,7 @@ class HomeLoyaltyCard extends StatelessWidget {
                         Text(
                           'Ещё 4 дня покупок до 1% в следующем месяце',
                           softWrap: true, // Ensure text wraps
-                          style: AppTextStyle.text().xs().regular().withColor(
+                          style: AppTextStyle.text().xs().medium().withColor(
                             Colors.white,
                           ),
                         ),
@@ -95,12 +95,13 @@ class HomeLoyaltyCard extends StatelessWidget {
                     ),
                   ),
                   SizedBox.square(
-                    dimension: 75,
+                    dimension: 70,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
                       ),
+                      child: FlutterLogo(),
                     ),
                   ),
                 ],
@@ -108,7 +109,10 @@ class HomeLoyaltyCard extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(Icons.apple, color: Colors.greenAccent, size: 40),
+                  CircleAvatar(
+                    backgroundColor: Colors.white,
+                    child: Icon(Icons.apple, size: 40),
+                  ),
                   Expanded(
                     child: Divider(
                       color: Colors.white.withValues(alpha: 0.4),

@@ -11,7 +11,7 @@ class HomeView extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         HomeLocationSearchAppBar(),
-        HomeFriendsSlider(),
+        HomeFriendsSlider(friends: []),
         HomeTitleListTile(title: 'Большой баннер.'),
         HomeAdBanner(),
         HomeTitleListTile(title: 'Мини-баннер'),
