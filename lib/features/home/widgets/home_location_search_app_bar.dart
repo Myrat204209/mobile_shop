@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_shop/features/home/home.dart';
 
 class HomeLocationSearchAppBar extends StatelessWidget {
-  const HomeLocationSearchAppBar({
-    super.key,
-  });
+  const HomeLocationSearchAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,15 +55,13 @@ class HomeLocationSearchAppBar extends StatelessWidget {
             barElevation: WidgetStatePropertyAll(0),
             barHintText: 'Найти в Дикси',
             barHintStyle: WidgetStatePropertyAll(
-              AppTextStyle.text(color: Colors.grey),
+              AppTextStyle.text(color: Color(0xFFA0AAB3)),
             ),
-    
+
             barShape: WidgetStatePropertyAll(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
             ),
-    
+
             barTrailing: [
               SizedBox(
                 height: 44,
