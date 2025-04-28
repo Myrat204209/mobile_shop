@@ -3,6 +3,7 @@ import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_shop/features/home/home.dart';
 
+//TODO: Spread the UI based code to app_ui package
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
