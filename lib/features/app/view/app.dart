@@ -15,11 +15,11 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final connectivityBloc = ConnectivityBloc(connectivity: _connectivity);
-      // ..add(ConnectivityObserve());
+    // ..add(ConnectivityObserve());
     return MultiBlocProvider(
       providers: [BlocProvider.value(value: connectivityBloc)],
-      child: LayoutBuilder(
-        builder: (context, constraints) => SafeArea(child: AppView()),
+      child: SafeArea(
+        child: LayoutBuilder(builder: (context, constraints) => AppView()),
       ),
     );
   }

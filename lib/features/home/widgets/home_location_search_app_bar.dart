@@ -42,7 +42,7 @@ class HomeLocationSearchAppBar extends StatelessWidget {
       forceMaterialTransparency: true,
       snap: true,
       bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(56),
+        preferredSize: const Size.fromHeight(52),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
           child: SearchAnchor.bar(
