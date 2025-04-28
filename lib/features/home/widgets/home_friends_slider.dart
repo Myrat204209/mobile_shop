@@ -10,49 +10,47 @@ class HomeFriendsSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 10),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ListTile(
-              title: Text(
-                'Клуб Друзей',
-                style: AppTextStyle.display().pageTitleBold(),
-              ),
-              contentPadding: EdgeInsets.symmetric(horizontal: 4),
-              onTap: () {
-                // context.pushRoute(routes.friendsRoute());
-              },
-              trailing: Icon(CupertinoIcons.arrow_right),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListTile(
+            title: Text(
+              'Клуб Друзей',
+              style: AppTextStyle.display().pageTitleBold(),
             ),
-            ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: 150),
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  if (index == 0) {
-                    return HomeLoyaltyCard();
-                  }
-                  return Container(
-                    margin: EdgeInsets.only(right: 10),
-                    width: 85,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+            contentPadding: EdgeInsets.symmetric(horizontal: 4),
+            onTap: () {
+              // context.pushRoute(routes.friendsRoute());
+            },
+            trailing: Icon(CupertinoIcons.arrow_right),
+          ),
+          SizedBox(
+            height: MediaQuery.sizeOf(context).height * 125 / 872,
 
-                      color: Colors.teal[100 * (index % 9)],
-                    ),
-                    child: Text('Item $index'),
-                  );
-                },
-              ),
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                if (index == 0) {
+                  return HomeLoyaltyCard();
+                }
+                return Container(
+                  margin: EdgeInsets.only(right: 10),
+                  width: 85,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+
+                    color: Colors.teal[100 * (index % 9)],
+                  ),
+                  child: Text('Item $index'),
+                );
+              },
             ),
-          ],
-        ),
-      ),
+          ),
+        ],
+      ).paddingOnly(left: 10),
     );
   }
 }
@@ -63,13 +61,13 @@ class HomeLoyaltyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 17 / 10,
+      aspectRatio: 8 / 5,
       child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         color: AppColors.mainAccent,
         margin: EdgeInsets.only(right: 10),
         child: Padding(
-          padding: const EdgeInsets.all(7.0),
+          padding: const EdgeInsets.all(4.0),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -78,7 +76,7 @@ class HomeLoyaltyCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Column(
-                      spacing: 4,
+                      spacing: 2,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         LoyaltyHeadlineText(text: 'Друг'),
@@ -86,8 +84,8 @@ class HomeLoyaltyCard extends StatelessWidget {
 
                         Text(
                           'Ещё 4 дня покупок до 1% в следующем месяце',
-                          softWrap: true, // Ensure text wraps
-                          style: AppTextStyle.text().xs().medium().withColor(
+                          softWrap: true,
+                          style: AppTextStyle.text().xxs().semiBold().withColor(
                             Colors.white,
                           ),
                         ),
@@ -95,7 +93,7 @@ class HomeLoyaltyCard extends StatelessWidget {
                     ),
                   ),
                   SizedBox.square(
-                    dimension: 70,
+                    dimension: 60,
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -106,12 +104,14 @@ class HomeLoyaltyCard extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: 10),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CircleAvatar(
                     backgroundColor: Colors.white,
-                    child: Icon(Icons.apple, size: 40),
+                    maxRadius: 15,
+                    child: Icon(Icons.apple, size: 30),
                   ),
                   Expanded(
                     child: Divider(
@@ -142,7 +142,7 @@ class LoyaltyHeadlineText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: AppTextStyle.text().md().extrabold().withColor(Colors.white),
+      style: AppTextStyle.text().sm().extrabold().withColor(Colors.white),
     );
   }
 }
