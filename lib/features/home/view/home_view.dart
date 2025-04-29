@@ -21,8 +21,11 @@ class HomeView extends StatelessWidget {
               onSearchTap: () {},
             ),
             AppClubCard(onTileTap: () {}),
-            HomeTitleListTile(title: 'Большой баннер.'),
-            HomeAdBanner(),
+            AppBanner(imageUrls: [
+              'https://example.com/image1.jpg',
+              'https://example.com/image2.jpg',
+              'https://example.com/image3.jpg',
+            ]),
             HomeTitleListTile(title: 'Мини-баннер'),
             HomePacksCarousel(),
             HomeTitleListTile(title: 'Пролистывающийся баннер.'),
@@ -31,7 +34,6 @@ class HomeView extends StatelessWidget {
             HomeDiscountsSlider(),
             HomeUserSpecialsSlider(),
             HomeTitleListTile(title: 'Большой рекламный баннер.'),
-            HomeAdBanner(isBanner: true),
             HomeUserPurchasesCard(),
           ],
         );

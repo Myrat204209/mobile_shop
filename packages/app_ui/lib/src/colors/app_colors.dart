@@ -50,7 +50,7 @@ abstract class AppColors {
 
   /// Major accent color (Purple) in Light Mode.
   /// Often used to draw attention to important elements like promotional banners.
-  static const Color majorAccent = Color(0xFF9C27B0);
+  static const Color majorAccent = Color(0xFF5f259e);
 
   /// Tertiary accent color (Dark Blue) for Light Mode.
   /// Adds a cool accent to the app's color palette, used in payment buttons.
