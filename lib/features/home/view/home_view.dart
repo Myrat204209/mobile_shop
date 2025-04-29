@@ -13,7 +13,13 @@ class HomeView extends StatelessWidget {
       builder: (context, constraints) {
         return CustomScrollView(
           slivers: [
-            HomeLocationSearchAppBar(),
+            AppStatusBar(
+              locationText: 'Москва, ул. Тверская, д. 15',
+              onAddressTap: () {},
+              onNotificationTap: () {},
+              onBookmarkTap: () {},
+              onSearchTap: () {},
+            ),
             AppClubCard(onTileTap: () {}),
             HomeTitleListTile(title: 'Большой баннер.'),
             HomeAdBanner(),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 final kAppOutlinedBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(15),
+  borderRadius: kCircular15Border,
   borderSide: const BorderSide(color: AppColors.border),
 );
 
