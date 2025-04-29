@@ -21,12 +21,15 @@ class HomeView extends StatelessWidget {
               onSearchTap: () {},
             ),
             AppClubCard(onTileTap: () {}),
-            AppBanner(imageUrls: [
-              'https://example.com/image1.jpg',
-              'https://example.com/image2.jpg',
-              'https://example.com/image3.jpg',
-            ]),
-            HomeTitleListTile(title: 'Мини-баннер'),
+            AppBanner(
+              imageUrls: [
+                'https://example.com/image1.jpg',
+                'https://example.com/image2.jpg',
+                'https://example.com/image3.jpg',
+              ],
+              onButtonPressed: () {},
+              onImageTap: () {},
+            ),
             HomePacksCarousel(),
             HomeTitleListTile(title: 'Пролистывающийся баннер.'),
             HomePromoCarousel(promoItems: buildPromoItems()),
