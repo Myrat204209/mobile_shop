@@ -30,10 +30,8 @@ class HomeView extends StatelessWidget {
               onButtonPressed: () {},
               onImageTap: () {},
             ),
-            HomePacksCarousel(),
-            HomeTitleListTile(title: 'Пролистывающийся баннер.'),
-            HomePromoCarousel(promoItems: buildPromoItems()),
-            HomeTitleListTile(title: 'Блок с акционной продукцией'),
+            AppSlider(sliderUrl: [], sliderCount: 5),
+            AppCarousel(promoItems: buildPromoItems()),
             HomeDiscountsSlider(),
             HomeUserSpecialsSlider(),
             HomeTitleListTile(title: 'Большой рекламный баннер.'),
@@ -69,7 +67,7 @@ List<Widget> buildPromoItems() {
         borderRadius: kCircular10Border,
       ),
       child: const Center(child: Text('Coupon 1: -10%')),
-    ),
+    ).paddingSymmetric(horizontal: 10),
     // Example Banner 2
     Container(
       decoration: BoxDecoration(
@@ -77,7 +75,7 @@ List<Widget> buildPromoItems() {
         borderRadius: kCircular10Border,
       ),
       child: const Center(child: Text('Special Offer!')),
-    ),
+    ).paddingSymmetric(horizontal: 10),
     // Example Banner 3
     Container(
       decoration: BoxDecoration(
@@ -85,7 +83,7 @@ List<Widget> buildPromoItems() {
         borderRadius: kCircular10Border,
       ),
       child: const Center(child: Text('Buy 1 Get 1 Free')),
-    ),
+    ).paddingSymmetric(horizontal: 10),
     // Add more banners...
   ];
 }
