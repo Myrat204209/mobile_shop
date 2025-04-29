@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 //           return Container(
 //             decoration: BoxDecoration(
 //               color: Colors.red[100 * (index % 9)],
-//               borderRadius: BorderRadius.circular(10),
+//               borderRadius: kCircular10Border,
 //               border: Border.all(color: Colors.black),
 //             ),
 //             margin: EdgeInsets.symmetric(horizontal: 5),

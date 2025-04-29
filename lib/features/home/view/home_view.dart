@@ -9,23 +9,27 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        HomeLocationSearchAppBar(),
-        HomeFriendsSlider(friends: []),
-        HomeTitleListTile(title: 'Большой баннер.'),
-        HomeAdBanner(),
-        HomeTitleListTile(title: 'Мини-баннер'),
-        HomePacksCarousel(),
-        HomeTitleListTile(title: 'Пролистывающийся баннер.'),
-        HomePromoCarousel(promoItems: buildPromoItems()),
-        HomeTitleListTile(title: 'Блок с акционной продукцией'),
-        HomeDiscountsSlider(),
-        HomeUserSpecialsSlider(),
-        HomeTitleListTile(title: 'Большой рекламный баннер.'),
-        HomeAdBanner(isBanner: true),
-        HomeUserPurchasesCard(),
-      ],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return CustomScrollView(
+          slivers: [
+            HomeLocationSearchAppBar(),
+            AppClubCard(onTileTap: () {}),
+            HomeTitleListTile(title: 'Большой баннер.'),
+            HomeAdBanner(),
+            HomeTitleListTile(title: 'Мини-баннер'),
+            HomePacksCarousel(),
+            HomeTitleListTile(title: 'Пролистывающийся баннер.'),
+            HomePromoCarousel(promoItems: buildPromoItems()),
+            HomeTitleListTile(title: 'Блок с акционной продукцией'),
+            HomeDiscountsSlider(),
+            HomeUserSpecialsSlider(),
+            HomeTitleListTile(title: 'Большой рекламный баннер.'),
+            HomeAdBanner(isBanner: true),
+            HomeUserPurchasesCard(),
+          ],
+        );
+      },
     );
   }
 }
@@ -51,7 +55,7 @@ List<Widget> buildPromoItems() {
     Container(
       decoration: BoxDecoration(
         color: Colors.orange[300],
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: kCircular10Border,
       ),
       child: const Center(child: Text('Coupon 1: -10%')),
     ),
@@ -59,7 +63,7 @@ List<Widget> buildPromoItems() {
     Container(
       decoration: BoxDecoration(
         color: Colors.lightBlue[300],
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: kCircular10Border,
       ),
       child: const Center(child: Text('Special Offer!')),
     ),
@@ -67,7 +71,7 @@ List<Widget> buildPromoItems() {
     Container(
       decoration: BoxDecoration(
         color: Colors.green[300],
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: kCircular10Border,
       ),
       child: const Center(child: Text('Buy 1 Get 1 Free')),
     ),

@@ -39,12 +39,11 @@ class HomeLocationSearchAppBar extends StatelessWidget {
         AppActionIcon(icon: CupertinoIcons.bell, onTap: () {}),
         AppActionIcon(icon: Icons.bookmark_border_outlined, onTap: () {}),
       ],
-      forceMaterialTransparency: true,
       snap: true,
       bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(52),
+        preferredSize: const Size.fromHeight(44),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           child: SearchAnchor.bar(
             barPadding: WidgetStatePropertyAll(EdgeInsets.only(left: 8)),
             barLeading: Icon(
@@ -52,7 +51,7 @@ class HomeLocationSearchAppBar extends StatelessWidget {
               size: 30,
               color: AppColors.iconColor.withValues(alpha: 0.5),
             ),
-            constraints: BoxConstraints(minHeight: 44),
+            constraints: BoxConstraints(minHeight: 43),
             barElevation: WidgetStatePropertyAll(0),
             barHintText: 'Найти в Дикси',
             barHintStyle: WidgetStatePropertyAll(

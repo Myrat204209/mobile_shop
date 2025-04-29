@@ -14,7 +14,7 @@ class HomeAdBanner extends StatelessWidget {
         height: !isBanner ? 130 : 100,
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: kCircular10Border,
           color: Colors.deepPurple,
         ),
         alignment: !isBanner ? Alignment.bottomLeft : Alignment.bottomRight,

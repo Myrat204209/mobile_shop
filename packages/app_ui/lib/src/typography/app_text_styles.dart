@@ -148,7 +148,7 @@ extension AppTextStyleSizeExtension on AppTextStyle {
   ///  * text - `fontSize`: 12, `lineHeight`: 18
   AppTextStyle xs() => switch (textType) {
     AppTextType.display => _copyWith(fontSize: 24, lineHeight: 32),
-    AppTextType.text => _copyWith(fontSize: 12, lineHeight: 18),
+    AppTextType.text => _copyWith(fontSize: 10, lineHeight: 14),
   };
   AppTextStyle xxs() => switch (textType) {
     AppTextType.display => _copyWith(fontSize: 18, lineHeight: 26),

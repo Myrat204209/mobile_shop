@@ -19,7 +19,7 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [BlocProvider.value(value: connectivityBloc)],
       child: SafeArea(
-        child: LayoutBuilder(builder: (context, constraints) => AppView()),
+        child: AppView(),
       ),
     );
   }
