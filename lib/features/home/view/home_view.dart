@@ -32,9 +32,13 @@ class HomeView extends StatelessWidget {
             ),
             AppSlider(sliderUrl: [], sliderCount: 5),
             AppCarousel(promoItems: buildPromoItems()),
-            HomeDiscountsSlider(),
+            AppRecommendedList(
+              title: 'Рекомендуемое',
+              itemCount: 5,
+              bannerVisible: true,
+            ),
+            AppBestseller(itemCount: 5, bannerVisible: true),
             HomeUserSpecialsSlider(),
-            HomeTitleListTile(title: 'Большой рекламный баннер.'),
             HomeUserPurchasesCard(),
           ],
         );
@@ -43,21 +47,6 @@ class HomeView extends StatelessWidget {
   }
 }
 
-class HomeTitleListTile extends StatelessWidget {
-  const HomeTitleListTile({super.key, required this.title});
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: ListTile(
-        title: Text(title, style: AppTextStyle.display().semiBold()),
-      ),
-    );
-  }
-}
-
-// Example list of banner widgets (replace with your actual banner widgets)
 List<Widget> buildPromoItems() {
   return [
     // Example Banner 1

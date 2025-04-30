@@ -4,33 +4,29 @@ import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 
 class HomeDiscountsSlider extends StatelessWidget {
-  const HomeDiscountsSlider({
-    super.key,
-  });
+  const HomeDiscountsSlider({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxHeight: 250),
+      child: AspectRatio(
+        aspectRatio: 59 / 109,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: 6,
           itemBuilder: (context, index) {
-            return Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
-              width: 140,
-              color: Colors.red[100 * (index % 9 + 1)],
-              alignment: Alignment.center,
-    
-              child: Text(
-                index == 0 ? '%' : '$index',
-                style:
-                    index == 0
-                        ? AppTextStyle.display().semiBold().withFontSize(
-                          150,
-                        )
-                        : null,
+            return ColoredBox(
+              color: Colors.red[100 * (index % 9 + 1)]!,
+
+              child: Align(
+                alignment: Alignment.center,
+                child: Text(
+                  index == 0 ? '%' : '$index',
+                  style:
+                      index == 0
+                          ? AppTextStyle.display().semiBold().withFontSize(150)
+                          : null,
+                ),
               ),
             );
           },
