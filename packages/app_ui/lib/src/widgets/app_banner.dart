@@ -18,7 +18,7 @@ class AppBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: AspectRatio(
-        aspectRatio: 360 / 135,
+        aspectRatio: 362 / 133,
         child: InkWell(
           onTap: onImageTap,
           child: AnimatedContainer(
@@ -45,12 +45,12 @@ class AppBanner extends StatelessWidget {
                       Colors.deepPurple,
                     ),
                   ),
-                ),
-              ).paddingAll(10),
-            ).paddingAll(10),
+                ).paddingAll(10),
+              ),
+            ),
           ),
         ),
-      ),
+      ).paddingAll(10),
     );
   }
 }

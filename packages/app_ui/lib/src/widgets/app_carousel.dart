@@ -1,3 +1,4 @@
+import 'package:app_ui/app_ui.dart';
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +30,7 @@ class _AppCarouselState extends State<AppCarousel> {
                 options: CarouselOptions(
                   autoPlay: true,
                   autoPlayInterval: const Duration(seconds: 5),
-                  viewportFraction: 1,
+                  viewportFraction: 0.98,
                   enlargeCenterPage: true,
                   enlargeFactor: 0,
                   aspectRatio: 355 / 172,
@@ -46,7 +47,7 @@ class _AppCarouselState extends State<AppCarousel> {
             _buildIndicators(),
           ],
         ),
-      ),
+      ).paddingAll(10),
     );
   }
 
