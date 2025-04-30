@@ -5,6 +5,23 @@ class AppCategoryGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SliverGrid.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        childAspectRatio: 1
+      ),
+      itemBuilder: (context, index) {
+        return ColoredBox(
+          color: Colors.red[100 * (index % 9 + 1)]!,
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Category $index',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+        );
+      },
+    );
   }
 }

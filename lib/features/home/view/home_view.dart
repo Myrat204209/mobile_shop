@@ -38,7 +38,8 @@ class HomeView extends StatelessWidget {
               bannerVisible: true,
             ),
             AppBestseller(itemCount: 5, bannerVisible: true),
-            
+            AppNewArrivalsList(),
+            AppCategoryGrid()
             
           ],
         );
