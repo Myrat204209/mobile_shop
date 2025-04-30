@@ -37,7 +37,7 @@ class HomeView extends StatelessWidget {
             SliverPadding(padding: EdgeInsets.only(bottom: 20)),
             AppCategoryGrid(),
             SliverPadding(padding: EdgeInsets.only(bottom: 20)),
-            AppNewArrivalsList(),
+            AppNewArrivalsList(itemCount: 6,),
             SliverPadding(padding: EdgeInsets.only(bottom: 20)),
           ],
         );
