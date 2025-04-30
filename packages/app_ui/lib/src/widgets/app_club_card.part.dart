@@ -27,13 +27,14 @@ class AppClubLoyaltyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 8 / 5,
+      aspectRatio: 199 / 123,
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: kCircular10Border),
         color: AppColors.mainAccent,
-        margin: EdgeInsets.only(right: 10),
+        margin: EdgeInsets.zero,
         child: Column(
           mainAxisSize: MainAxisSize.min,
+
           children: [
             Expanded(
               child: Row(
@@ -90,6 +91,6 @@ class AppClubLoyaltyCard extends StatelessWidget {
           ],
         ).paddingSymmetric(horizontal: 4, vertical: 2),
       ),
-    );
+    ).paddingOnly(right: 10);
   }
 }
