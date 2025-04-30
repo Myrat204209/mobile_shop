@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 abstract class AppColors {
   /// Main accent color (Orange) used throughout the app in Light Mode.
   /// Typically applied to buttons, icons, and primary UI elements.
-  static const Color mainAccent = Color(0xFFFF8202);
+  static const Color mainAccent = Color(0xFFFC8101);
 
   /// Secondary accent color (Green) for Light Mode.
   /// Used as a subtle complementary color for main accents.

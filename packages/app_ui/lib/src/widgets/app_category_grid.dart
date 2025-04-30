@@ -6,24 +6,34 @@ class AppCategoryGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverGrid.builder(
-      itemCount: 10,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        childAspectRatio: 1,
-      ),
-      itemBuilder: (context, index) {
-        return ColoredBox(
-          color: Colors.red[100 * (index % 9 + 1)]!,
-          child: Align(
-            alignment: Alignment.center,
-            child: Text(
-              'Category $index',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      sliver: SliverGrid.builder(
+        itemCount: 9,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          mainAxisExtent: 115,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+          childAspectRatio: 1,
+        ),
+
+        itemBuilder: (context, index) {
+          return DecoratedBox(
+            decoration: BoxDecoration(
+              color: Colors.green[100 * (index % 9 + 1)]!,
+              borderRadius: BorderRadius.circular(10),
             ),
-          ),
-        ).paddingAll(10);
-      },
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                'Category $index',
+                style: AppTextStyle.text().bold().lg(),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

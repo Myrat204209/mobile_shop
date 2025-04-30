@@ -34,8 +34,11 @@ class HomeView extends StatelessWidget {
             AppRecommendedList(title: 'Рекомендуемое', itemCount: 5),
             SliverPadding(padding: EdgeInsets.only(bottom: 10)),
             AppBestseller(itemCount: 5),
-            // AppNewArrivalsList(),
+            SliverPadding(padding: EdgeInsets.only(bottom: 20)),
             AppCategoryGrid(),
+            SliverPadding(padding: EdgeInsets.only(bottom: 20)),
+            AppNewArrivalsList(),
+            SliverPadding(padding: EdgeInsets.only(bottom: 20)),
           ],
         );
       },
