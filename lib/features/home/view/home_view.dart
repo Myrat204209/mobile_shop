@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_shop/features/home/home.dart';
 
 //TODO: Spread the UI based code to app_ui package
 class HomeView extends StatelessWidget {
@@ -32,15 +31,11 @@ class HomeView extends StatelessWidget {
             ),
             AppSlider(sliderUrl: [], sliderCount: 5),
             AppCarousel(promoItems: buildPromoItems()),
-            AppRecommendedList(
-              title: 'Рекомендуемое',
-              itemCount: 5,
-              bannerVisible: true,
-            ),
-            AppBestseller(itemCount: 5, bannerVisible: true),
-            AppNewArrivalsList(),
-            AppCategoryGrid()
-            
+            AppRecommendedList(title: 'Рекомендуемое', itemCount: 5),
+            SliverPadding(padding: EdgeInsets.only(bottom: 10)),
+            AppBestseller(itemCount: 5),
+            // AppNewArrivalsList(),
+            AppCategoryGrid(),
           ],
         );
       },

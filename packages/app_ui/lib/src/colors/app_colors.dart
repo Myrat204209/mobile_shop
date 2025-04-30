@@ -14,7 +14,7 @@ abstract class AppColors {
 
   /// Background color for primary surfaces in Light Mode.
   /// Typically used as a screen or main content background.
-  static const Color bgMain = Color(0xFFFFFFFF);
+  static const Color bgMain = Color(0xFFF7F7F7);
 
   /// Secondary background color in Light Mode.
   /// Used for cards, containers, and other secondary surfaces.

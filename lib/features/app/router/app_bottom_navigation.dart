@@ -1,3 +1,4 @@
+import 'package:app_ui/app_ui.dart' show AppColors;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
@@ -26,10 +27,11 @@ class AppBottomNavigation extends StatelessWidget {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
           body: child,
-          bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: AppColors.bgMain,
+          bottomNavigationBar: NavigationBar(
             // Get the current index from the TabsRouter
-            currentIndex: tabsRouter.activeIndex,
-            onTap: (index) {
+            selectedIndex: tabsRouter.activeIndex,
+            onDestinationSelected: (index) {
               if (tabsRouter.activeIndex != index) {
                 tabsRouter.setActiveIndex(index);
               } else {
@@ -38,33 +40,37 @@ class AppBottomNavigation extends StatelessWidget {
                     ?.popUntilRoot();
               }
             },
-            // Define your navigation bar items
-            items: const [
-              BottomNavigationBarItem(
+
+            destinations: [
+              NavigationDestination(
                 icon: Icon(CupertinoIcons.home),
                 label: 'Начало',
               ),
-              BottomNavigationBarItem(
+              NavigationDestination(
                 icon: Icon(CupertinoIcons.square_grid_2x2),
                 label: 'Каталог',
               ),
-              BottomNavigationBarItem(
+              NavigationDestination(
                 icon: Icon(Icons.emoji_food_beverage_rounded),
                 label: 'Напитки',
               ),
-              BottomNavigationBarItem(
+              NavigationDestination(
                 icon: Icon(Icons.discount_rounded),
                 label: 'Акции',
               ),
-              BottomNavigationBarItem(
-                icon: Icon(CupertinoIcons.smiley),
+              NavigationDestination(
+                icon: Icon(CupertinoIcons.smiley, color: AppColors.iconColor),
                 label: 'Профиль',
               ),
             ],
+            height: 56,
+            indicatorShape: null,
 
-            selectedItemColor: Colors.orange,
-            unselectedItemColor: Colors.grey,
-            type: BottomNavigationBarType.fixed,
+            backgroundColor: Colors.white,
+
+            // selectedItemColor: Colors.orange,
+            // unselectedItemColor: Colors.grey,
+            // type: BottomNavigationBarType.fixed,
           ),
           floatingActionButton:
               BlocBuilder<ConnectivityBloc, ConnectivityState>(
