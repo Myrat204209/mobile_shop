@@ -2,10 +2,23 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'widget_item.g.dart';
 
+enum WidgetType {
+  statusBar,
+  search,
+  clubCard,
+  banner,
+  recommended,
+  carousel,
+  category,
+  slider,
+  bestSeller,
+  newArrival,
+}
+
 @JsonSerializable(explicitToJson: true)
 class WidgetItem {
   final String guid;
-  final String type;
+  final WidgetType type;
   final int position;
   final DateTime modDate;
   const WidgetItem({
@@ -19,4 +32,3 @@ class WidgetItem {
       _$WidgetItemFromJson(json);
   Map<String, dynamic> toJson() => _$WidgetItemToJson(this);
 }
-
