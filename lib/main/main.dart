@@ -28,6 +28,9 @@ Future<void> main() async {
 
     await Hive.initFlutter();
     // Hive.registerAdapters();
-    return App(connectivity: connectivity);
+    return App(
+      connectivity: connectivity,
+      preloaderRepository: preloaderRepository,
+    );
   });
 }
