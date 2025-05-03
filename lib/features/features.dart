@@ -11,3 +11,4 @@ export 'orders/orders.dart';
 export 'order_details/order_details.dart';
 export 'search/search.dart';  
 export 'notifications/notifications.dart';
+export 'preloader/preloader.dart';
