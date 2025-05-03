@@ -18,9 +18,15 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final connectivityBloc = ConnectivityBloc(connectivity: _connectivity);
+    final preloaderBloc = PreloaderBloc(
+      preloaderRepository: _preloaderRepository,
+    )..add(PreloaderLoaded());
     // ..add(ConnectivityObserve());
     return MultiBlocProvider(
-      providers: [BlocProvider.value(value: connectivityBloc)],
+      providers: [
+        BlocProvider.value(value: connectivityBloc),
+        BlocProvider.value(value: preloaderBloc),
+      ],
       child: SafeArea(child: AppView()),
     );
   }
