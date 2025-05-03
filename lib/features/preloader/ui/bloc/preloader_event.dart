@@ -6,3 +6,7 @@ sealed class PreloaderEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+final class PreloaderLoaded extends PreloaderEvent {
+  const PreloaderLoaded();
+}
