@@ -19,7 +19,11 @@ Future<void> main() async {
   bootStrap(talker, () async {
     const defaultBaseUrl = 'http://192.168.1.227:8080';
     final httpClient = Http(defaultBaseUrl: defaultBaseUrl);
-    final preloaderClient = PreloaderClient(httpClient);
+
+    final preloaderRepository = PreloaderRepository(
+      preloaderClient: PreloaderClient(httpClient),
+    );
+
     HttpOverrides.global = MyHttpOverrides();
 
     await Hive.initFlutter();
