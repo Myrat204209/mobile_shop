@@ -1,0 +1,19 @@
+{
+    "shopName": "String",
+    "shopGuid": "String",
+    "modDate": "DateTime",
+    "pages": [
+        {
+            "pageName": "String    *1{enum}",
+            "modDate": "DateTime",
+            "widgets": [
+                {
+                    "guid": "String",
+                    "type": "String       *2{enum}",
+                    "position": "int",
+                    "modDate": "DateTime"
+                }
+            ]
+        }
+    ]
+}

@@ -34,6 +34,8 @@ dependencies:
   sentry_flutter: ^8.14.2
   cupertino_icons: ^1.0.8
   mobile_scanner: ^6.0.9
+  hive_ce: ^2.11.0
+  hive_ce_flutter: ^2.3.0
 
 dev_dependencies:
   sentry_dart_plugin: ^2.4.1
@@ -42,6 +44,8 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   auto_route_generator: ^10.0.1
   build_runner: ^2.4.15
+  hive_ce_generator: ^1.9.0
+  bloc_lint: 0.2.0-dev.1
 
 flutter:
   uses-material-design: true
