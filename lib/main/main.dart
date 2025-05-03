@@ -17,8 +17,9 @@ Future<void> main() async {
   getIt.registerSingleton<Talker>(talker);
   getIt.registerSingleton<AppRouter>(router);
   bootStrap(talker, () async {
-    const defaultBaseUrl = 'http://BASEURL';
+    const defaultBaseUrl = 'http://192.168.1.227:8080';
     final httpClient = Http(defaultBaseUrl: defaultBaseUrl);
+    final preloaderClient = PreloaderClient(httpClient);
     HttpOverrides.global = MyHttpOverrides();
 
     await Hive.initFlutter();
