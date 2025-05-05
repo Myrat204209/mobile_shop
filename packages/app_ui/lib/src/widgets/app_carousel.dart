@@ -1,86 +1,41 @@
-import 'package:app_ui/app_ui.dart';
-import 'package:carousel_slider_plus/carousel_slider_plus.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:app_ui/app_ui.dart' show kCircular15Border;
 import 'package:flutter/material.dart';
 
-class AppCarousel extends StatefulWidget {
-  final List<Widget> promoItems;
+class AppCarousel extends StatelessWidget {
+  const AppCarousel({
+    super.key,
+    required this.sliderUrl,
+    required this.sliderCount,
+    this.onImageTap,
+  });
 
-  const AppCarousel({super.key, required this.promoItems});
-
-  @override
-  State<AppCarousel> createState() => _AppCarouselState();
-}
-
-class _AppCarouselState extends State<AppCarousel> {
-  int _currentIndex = 0;
-  final _carouselController = CarouselSliderController();
-
+  final List<String> sliderUrl;
+  final int sliderCount;
+  final VoidCallback? onImageTap;
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: AspectRatio(
-        aspectRatio: 355 / 195,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Expanded(
-              child: CarouselSlider(
-                items: widget.promoItems,
-                controller: _carouselController,
-                options: CarouselOptions(
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 5),
-                  viewportFraction: 0.98,
-                  enlargeCenterPage: true,
-                  enlargeFactor: 0,
-                  aspectRatio: 355 / 172,
-
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _currentIndex = index;
-                    });
-                  },
-                ),
-              ),
+        aspectRatio: 360 / 135,
+        child: CarouselView(
+          itemExtent: 115,
+          shrinkExtent: 100,
+          enableSplash: true,
+          itemSnapping: true,
+          shape: RoundedRectangleBorder(borderRadius: kCircular15Border),
+          scrollDirection: Axis.horizontal,
+          children: List.generate(
+            5,
+            (index) => Container(
+              height: 135,
+              color: Colors.red[100 * (index % 9 + 1)],
+              alignment: Alignment.center,
+              child: Text(index.toString()),
             ),
-
-            _buildIndicators(),
-          ],
+          ),
         ),
-      ).paddingAll(10),
-    );
-  }
-
-  Widget _buildIndicators() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children:
-          widget.promoItems.asMap().entries.map((entry) {
-            int index = entry.key;
-            return GestureDetector(
-              onTap: () => _carouselController.animateToPage(index),
-              child: Container(
-                width: _currentIndex == index ? 18.0 : 8.0,
-                height: 8.0,
-                margin: const EdgeInsets.symmetric(
-                  vertical: 8.0,
-                  horizontal: 4.0,
-                ),
-                decoration: BoxDecoration(
-                  shape:
-                      _currentIndex == index
-                          ? BoxShape.rectangle
-                          : BoxShape.circle,
-                  borderRadius:
-                      _currentIndex == index ? BorderRadius.circular(5) : null,
-                  color:
-                      _currentIndex == index
-                          ? Colors.orangeAccent
-                          : Colors.grey,
-                ),
-              ),
-            );
-          }).toList(),
+      ),
     );
   }
 }

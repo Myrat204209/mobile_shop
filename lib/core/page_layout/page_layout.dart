@@ -49,7 +49,7 @@ class PageLayout extends StatelessWidget {
       case WidgetType.category:
         return AppCategoryGrid();
       case WidgetType.slider:
-        return AppSlider(sliderUrl: [], sliderCount: 5);
+        return AppCarousel(sliderUrl: [], sliderCount: 5);
       case WidgetType.bestSeller:
         return AppBestseller(itemCount: 5);
       case WidgetType.newArrival:
