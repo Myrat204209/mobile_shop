@@ -1,9 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:app_ui/app_ui.dart';
+import 'package:data_provider/data_provider.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  const HomeView({super.key, required this.pageItem});
+
+  final PageItem pageItem;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,7 @@ class HomeView extends StatelessWidget {
             SliverPadding(padding: EdgeInsets.only(bottom: 20)),
             AppCategoryGrid(),
             SliverPadding(padding: EdgeInsets.only(bottom: 20)),
-            AppNewArrivalsList(itemCount: 6,),
+            AppNewArrivalsList(itemCount: 6),
             SliverPadding(padding: EdgeInsets.only(bottom: 20)),
           ],
         );
