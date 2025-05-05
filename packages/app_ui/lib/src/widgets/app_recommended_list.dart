@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 class AppRecommendedList extends StatelessWidget {
   const AppRecommendedList({
     super.key,
-    required this.title,
+    this.title,
     required this.itemCount,
     this.bannerVisible = false,
   });
 
-  final String title;
+  final String? title;
   final bool bannerVisible;
   final int itemCount;
   @override

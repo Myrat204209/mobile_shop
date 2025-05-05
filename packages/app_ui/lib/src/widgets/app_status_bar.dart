@@ -6,7 +6,7 @@ import 'package:marquee/marquee.dart';
 class AppStatusBar extends StatelessWidget {
   const AppStatusBar({
     super.key,
-    required this.locationText,
+    this.locationText,
     required this.onAddressTap,
     required this.onNotificationTap,
     required this.onBookmarkTap,

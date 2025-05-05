@@ -2,6 +2,7 @@
 import 'package:app_ui/app_ui.dart';
 import 'package:data_provider/data_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_shop/core/page_layout/page_layout.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key, required this.pageItem});
@@ -12,7 +13,14 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return CustomScrollView(
+        return PageLayout(widgets: pageItem.widgets);
+      },
+    );
+  }
+}
+
+/**
+ * CustomScrollView(
           slivers: [
             AppStatusBar(
               locationText: 'Москва, ул. Тверская, д. 15',
@@ -43,11 +51,7 @@ class HomeView extends StatelessWidget {
             SliverPadding(padding: EdgeInsets.only(bottom: 20)),
           ],
         );
-      },
-    );
-  }
-}
-
+ */
 List<Widget> buildPromoItems() {
   return [
     // Example Banner 1

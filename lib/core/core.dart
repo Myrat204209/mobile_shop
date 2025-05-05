@@ -4,3 +4,4 @@ export 'database/database.dart';
 export 'env/env.dart';
 export 'location/location.dart';
 export 'scanner/scanner.dart';
+export 'page_layout/page_layout.dart';
