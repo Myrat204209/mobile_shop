@@ -47,7 +47,7 @@ class PageLayout extends StatelessWidget {
       case WidgetType.slider:
         return AppSlider(promoItems: buildPromoItems());
       case WidgetType.category:
-        return AppCategoryGrid();
+        return AppCategoryGrid(title: 'item.', itemCount: 5);
       case WidgetType.carousel:
         return AppCarousel(carouselImages: [], carouselCount: 5);
       case WidgetType.bestSeller:
