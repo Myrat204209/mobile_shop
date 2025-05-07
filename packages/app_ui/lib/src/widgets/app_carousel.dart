@@ -5,13 +5,13 @@ import 'package:flutter/material.dart';
 class AppCarousel extends StatelessWidget {
   const AppCarousel({
     super.key,
-    required this.sliderUrl,
-    required this.sliderCount,
+    required this.carouselImages,
+    required this.carouselCount,
     this.onImageTap,
   });
 
-  final List<String> sliderUrl;
-  final int sliderCount;
+  final List<String> carouselImages;
+  final int carouselCount;
   final VoidCallback? onImageTap;
   @override
   Widget build(BuildContext context) {
