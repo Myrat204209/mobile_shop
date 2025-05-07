@@ -18,7 +18,7 @@ class PreloaderRepository {
     : _preloaderClient = preloaderClient;
   final PreloaderClient _preloaderClient;
 
-  Future<PreloadItem> getPreload() async {
+  Future<PreloadItem?> getPreload() async {
     try {
       return await _preloaderClient.getPreloader();
     } catch (error, stackTrace) {

@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 class AppCategoryGrid extends StatelessWidget {
   final String title;
   final int itemCount;
-  // final List<YourCategoryItemData> items;
 
   const AppCategoryGrid({
     super.key,
     required this.title,
     required this.itemCount,
-    // required this.items,
   });
 
   @override

@@ -9,5 +9,5 @@ abstract class PreloaderClient {
   factory PreloaderClient(Dio dio, {String baseUrl}) = _PreloaderClient;
 
   @GET('/preloader')
-  Future<PreloadItem> getPreloader();
+  Future<PreloadItem?> getPreloader();
 }
