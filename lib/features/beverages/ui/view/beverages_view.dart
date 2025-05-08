@@ -1,3 +1,5 @@
+
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 
 class BeveragesView extends StatelessWidget {
@@ -5,6 +7,6 @@ class BeveragesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Beverages Page'));
+    return AppStickyHeaderList();
   }
 }
