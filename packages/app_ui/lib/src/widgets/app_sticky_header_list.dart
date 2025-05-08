@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
-// Assume Product and ProductCategory models are defined as above
-// Example Data Structure (using simplified models for clarity)
 class Product {
   final String name;
   final String price;
   final String imageUrl; // or assetPath
-  // ... other properties like discount, rating
 
   Product({required this.name, required this.price, required this.imageUrl});
 }
 
 class ProductCategory {
-  final String title; // e.g., "Готовая еда", "Молочные продукты"
+  final String title;
   final List<Product> products;
 
   ProductCategory({required this.title, required this.products});
 }
 
-// Sample Data
 final List<ProductCategory> allCategories = [
   ProductCategory(
     title: 'Готовая еда',
@@ -34,7 +30,6 @@ final List<ProductCategory> allCategories = [
         price: '149.99 ₽/шт',
         imageUrl: 'assets/plov.png',
       ),
-      // ... more products for Готовая еда
     ],
   ),
   ProductCategory(
@@ -45,15 +40,42 @@ final List<ProductCategory> allCategories = [
         price: '99.99 ₽/шт',
         imageUrl: 'assets/sok_dobry.png',
       ),
-      // ... more products for Напитки
     ],
   ),
-  // ... more categories
+  ProductCategory(
+    title: 'Нfапитки',
+    products: [
+      Product(
+        name: 'Сок Добрый',
+        price: '99.99 ₽/шт',
+        imageUrl: 'assets/sok_dobry.png',
+      ),
+    ],
+  ),
+  ProductCategory(
+    title: 'Наasdasdasпитки',
+    products: [
+      Product(
+        name: 'Сок Добрый',
+        price: '99.99 ₽/шт',
+        imageUrl: 'assets/sok_dobry.png',
+      ),
+    ],
+  ),
+  ProductCategory(
+    title: 'Напитк2и',
+    products: [
+      Product(
+        name: 'Сок Добрый',
+        price: '99.99 ₽/шт',
+        imageUrl: 'assets/sok_dobry.png',
+      ),
+    ],
+  ),
 ];
 
 class AppStickyHeaderList extends StatelessWidget {
-  final List<ProductCategory> categories =
-      allCategories; // Your actual data source
+  final List<ProductCategory> categories = allCategories;
 
   AppStickyHeaderList({super.key});
 
@@ -62,10 +84,9 @@ class AppStickyHeaderList extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
-          // 1. Main App Bar (if it needs to be part of the scroll)
           const SliverAppBar(
-            title: Text('Скидки по карте'), // Or dynamic based on context
-            pinned: true, // Makes the main app bar sticky
+            title: Text('Скидки по карте'),
+            pinned: true,
             floating: false,
             actions: [IconButton(icon: Icon(Icons.search), onPressed: null)],
             // elevation: 1.0, // Optional elevation
@@ -75,20 +96,14 @@ class AppStickyHeaderList extends StatelessWidget {
           // 2. Iterate over your categories to create sticky header sections
           for (final category in categories)
             SliverStickyHeader(
-              // sticky: true, // Default is true
+              // sticky: true,
               // overlapHeaders: false, // Default, ensures headers replace each other
-
-              // ----- The Header for each category (e.g., "Готовая еда") -----
               header: Container(
-                height: 50.0, // Adjust height as needed
-                color:
-                    Theme.of(
-                      context,
-                    ).scaffoldBackgroundColor, // Or a specific header background
+                height: 50.0,
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 alignment: Alignment.centerLeft,
-                // Optional: Add a border like in some designs
                 decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   border: Border(
                     bottom: BorderSide(color: Colors.grey[300]!, width: 0.5),
                   ),
@@ -98,22 +113,17 @@ class AppStickyHeaderList extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    // color: Colors.black87, // Or your theme's text color
                   ),
                 ),
               ),
-
-              // ----- The Content Sliver for each category (the product grid) -----
               sliver: SliverPadding(
-                // Add padding around the grid itself if needed
                 padding: const EdgeInsets.all(16.0),
                 sliver: SliverGrid(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, // Two items per row
-                    mainAxisSpacing: 12.0, // Spacing between rows
-                    crossAxisSpacing: 12.0, // Spacing between columns
-                    childAspectRatio:
-                        0.65, // Adjust to fit your product card design (width / height)
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 12.0,
+                    crossAxisSpacing: 12.0,
+                    childAspectRatio: 0.65,
                   ),
                   delegate: SliverChildBuilderDelegate((
                     BuildContext context,
@@ -125,40 +135,21 @@ class AppStickyHeaderList extends StatelessWidget {
                 ),
               ),
             ),
-          // Add a SliverToBoxAdapter for bottom padding if needed,
-          // so the last items don't get stuck behind a bottom navigation bar for example.
           const SliverToBoxAdapter(child: SizedBox(height: 80)),
         ],
       ),
-      // Your BottomNavigationBar would go here if it's a full screen
-      // bottomNavigationBar: BottomNavigationBar(...),
     );
   }
 
-  // Helper widget to build each product card (similar to your previous card structure)
   Widget _buildProductCard(BuildContext context, Product product) {
     return Card(
       elevation: 1.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-      clipBehavior: Clip.antiAlias, // Important for rounded corners on Image
+      clipBehavior: Clip.antiAlias,
       child: Column(
-        crossAxisAlignment:
-            CrossAxisAlignment
-                .stretch, // Make column children stretch horizontally
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Expanded(
-            flex: 3, // Give more space to the image
-            child: Image.asset(
-              // Or Image.network if URLs
-              product.imageUrl,
-              fit: BoxFit.cover,
-              // Optional: Error builder for images
-              errorBuilder:
-                  (context, error, stackTrace) => const Center(
-                    child: Icon(Icons.image_not_supported, color: Colors.grey),
-                  ),
-            ),
-          ),
+          Expanded(flex: 3, child: FlutterLogo()),
           Expanded(
             flex: 2, // Less space for text details
             child: Padding(
@@ -177,7 +168,6 @@ class AppStickyHeaderList extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  // Add discount badges or other info here if needed
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
