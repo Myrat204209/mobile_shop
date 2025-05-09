@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'product_item.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class ProductItem {
   final int id;
   final String name;
@@ -12,7 +12,7 @@ class ProductItem {
   final String? image;
   final String body;
   final int quantity;
-  final double discount;
+  final double? discount;
   @JsonKey(name: 'discount_from')
   final DateTime? discountFrom;
   @JsonKey(name: 'discount_to')
