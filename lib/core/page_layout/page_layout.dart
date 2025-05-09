@@ -17,7 +17,10 @@ class PageLayout extends StatelessWidget {
         ...sortedWidgets.map((widgetItem) {
           final contentWidget = _buildWidgetByType(context, widgetItem);
 
-          return contentWidget;
+          return SliverPadding(
+            sliver: contentWidget,
+            padding: EdgeInsets.symmetric(vertical: 10),
+          );
         }),
       ],
     );
