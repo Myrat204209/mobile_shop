@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:app_ui/app_ui.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
+import 'package:mobile_shop/features/profile/profile.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -10,6 +11,7 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 10,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
@@ -92,6 +94,7 @@ class ProfileView extends StatelessWidget {
                     ),
                   ),
                   Row(
+                    spacing: 10,
                     children: [
                       ProfileCardChip(),
                       ProfileCardChip(),
@@ -113,36 +116,41 @@ class ProfileView extends StatelessWidget {
             ],
           ),
         ),
+
+        Row(
+          spacing: 10,
+          children: [ProfileButton(), ProfileButton(), ProfileButton()],
+        ),
       ],
     ).paddingAll(15);
   }
 }
 
-class ProfileCardChip extends StatelessWidget {
-  const ProfileCardChip({
-    super.key,
-  });
+class ProfileButton extends StatelessWidget {
+  const ProfileButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ActionChip(
-      avatar: Icon(
-        Icons.pending,
-        color: AppColors.mainAccent,
-      ),
-      avatarBoxConstraints: BoxConstraints(maxWidth: 25),
-      label: Text(
-        '0',
-        style: AppTextStyle.text().lg().extrabold().withColor(
-          Colors.deepOrange,
+    return Expanded(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: kCircular10Border,
+          border: Border.all(color: AppColors.iconColor.withValues(alpha: 0.2)),
         ),
+        child: Column(
+          spacing: 10,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(Icons.shopping_bag_outlined).paddingOnly(top: 5),
+            Text(
+              'Покупки',
+              style: AppTextStyle.text().title().semiBold(),
+            ).paddingOnly(bottom: 5),
+          ],
+        ).paddingSymmetric(horizontal: 10),
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: kCircular20Border,
-      ),
-    
-      labelPadding: EdgeInsets.symmetric(horizontal: 8),
-      padding: EdgeInsets.zero,
     );
   }
 }
