@@ -77,6 +77,7 @@ class ProfileView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Drug',
@@ -90,7 +91,13 @@ class ProfileView extends StatelessWidget {
                       AppColors.bgMain,
                     ),
                   ),
-                  Text('Drug'),
+                  Row(
+                    children: [
+                      ProfileCardChip(),
+                      ProfileCardChip(),
+                      ProfileCardChip(),
+                    ],
+                  ),
                 ],
               ).paddingSymmetric(horizontal: 10),
 
@@ -108,5 +115,34 @@ class ProfileView extends StatelessWidget {
         ),
       ],
     ).paddingAll(15);
+  }
+}
+
+class ProfileCardChip extends StatelessWidget {
+  const ProfileCardChip({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ActionChip(
+      avatar: Icon(
+        Icons.pending,
+        color: AppColors.mainAccent,
+      ),
+      avatarBoxConstraints: BoxConstraints(maxWidth: 25),
+      label: Text(
+        '0',
+        style: AppTextStyle.text().lg().extrabold().withColor(
+          Colors.deepOrange,
+        ),
+      ),
+      shape: RoundedRectangleBorder(
+        borderRadius: kCircular20Border,
+      ),
+    
+      labelPadding: EdgeInsets.symmetric(horizontal: 8),
+      padding: EdgeInsets.zero,
+    );
   }
 }
