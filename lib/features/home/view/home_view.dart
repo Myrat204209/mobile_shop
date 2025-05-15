@@ -2,7 +2,7 @@
 import 'package:app_ui/app_ui.dart';
 import 'package:data_provider/data_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_shop/core/page_layout/page_layout.dart';
+import 'package:mobile_shop/core/core.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key, required this.pageItem});
