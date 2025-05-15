@@ -11,11 +11,11 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 15,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: 10,
           children: [
             Row(
               children: [
@@ -69,6 +69,7 @@ class ProfileView extends StatelessWidget {
                   ],
                 ),
               ),
+              dense: true,
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -127,112 +128,56 @@ class ProfileView extends StatelessWidget {
             Row(
               spacing: 10,
               children: [ProfileButton(), ProfileButton(), ProfileButton()],
-            ),
+            ).paddingSymmetric(vertical: 15),
           ],
-        ).paddingAll(15).colorize(Colors.white),
+        ).paddingSymmetric(horizontal: 15).colorize(Colors.white),
 
-        Expanded(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ListTile(
-                leading: SizedBox.square(
-                  dimension: 40,
-                  child: Icon(Icons.shopping_bag_outlined),
-                ).colorize(AppColors.iconColor.withAlpha(20)),
-                title: Text('Заказы'),
-                subtitle: Text('data'),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.chevron_right_outlined),
-                ),
-                visualDensity: VisualDensity.compact,
-              ),
-              Divider(
-                height: 5,
-                indent: 60,
-                endIndent: 30,
-                color: AppColors.iconColor.withAlpha(20),
-              ),
-              ListTile(
-                leading: SizedBox.square(
-                  dimension: 40,
-                  child: Icon(Icons.shopping_bag_outlined),
-                ).colorize(AppColors.iconColor.withAlpha(20)),
-                title: Text('Заказы'),
-                subtitle: Text('data'),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.chevron_right_outlined),
-                ),
-                visualDensity: VisualDensity.compact,
-              ),
-              Divider(
-                height: 5,
-                indent: 60,
-                endIndent: 30,
-                color: AppColors.iconColor.withAlpha(20),
-              ),
-              ListTile(
-                leading: SizedBox.square(
-                  dimension: 40,
-                  child: Icon(Icons.shopping_bag_outlined),
-                ).colorize(AppColors.iconColor.withAlpha(20)),
-                title: Text('Заказы'),
-                subtitle: Text('data'),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.chevron_right_outlined),
-                ),
-                visualDensity: VisualDensity.compact,
-              ),
-              Divider(
-                height: 5,
-                indent: 60,
-                endIndent: 30,
-                color: AppColors.iconColor.withAlpha(20),
-              ),
-              ListTile(
-                leading: SizedBox.square(
-                  dimension: 40,
-                  child: Icon(Icons.shopping_bag_outlined),
-                ).colorize(AppColors.iconColor.withAlpha(20)),
-                title: Text('Заказы'),
-                subtitle: Text('data'),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.chevron_right_outlined),
-                ),
-                visualDensity: VisualDensity.compact,
-              ),
-              Divider(
-                indent: 60,
-                endIndent: 30,
-                height: 5,
-                color: AppColors.iconColor.withAlpha(20),
-              ),
-              ListTile(
-                leading: SizedBox.square(
-                  dimension: 40,
-                  child: Icon(Icons.shopping_bag_outlined),
-                ).colorize(AppColors.iconColor.withAlpha(20)),
-                title: Text('Заказы'),
-                subtitle: Text('data'),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.chevron_right_outlined),
-                ),
-                visualDensity: VisualDensity.compact,
-              ),
-              Divider(
-                indent: 60,
-                height: 5,
-                endIndent: 30,
-                color: AppColors.iconColor.withAlpha(20),
-              ),
-            ],
-          ).colorize(Colors.white),
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ProfileTile(),
+            ProfileTile(),
+            ProfileTile(),
+            ProfileTile(),
+            ProfileTile(),
+            ProfileTile(),
+            ProfileTile(),
+          ],
+        ).colorize(Colors.white),
+      ],
+    ).colorize(AppColors.iconColor.withAlpha(20));
+  }
+}
+
+class ProfileTile extends StatelessWidget {
+  const ProfileTile({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ListTile(
+          leading: SizedBox.square(
+            dimension: 40,
+            child: Icon(Icons.shopping_bag_outlined),
+          ).colorize(AppColors.iconColor.withAlpha(20)),
+          title: Text('Заказы'),
+          subtitle: Text('data'),
+          trailing: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.chevron_right_outlined),
+          ),
+          dense: true,
+          visualDensity: VisualDensity.compact,
+        ),
+        Divider(
+          indent: 60,
+          height: 5,
+          endIndent: 30,
+          color: AppColors.iconColor.withAlpha(20),
         ),
       ],
     );

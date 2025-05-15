@@ -11,7 +11,6 @@ dependencies:
   flutter:
     sdk: flutter
   marquee: ^2.3.0
-
   carousel_slider_plus: ^7.1.0
   scrollable_list_tab_scroller: ^3.1.0
   flutter_sticky_header: ^0.7.0
