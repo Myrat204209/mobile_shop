@@ -1,8 +1,6 @@
 import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_shop/features/profile/profile.dart';
-import 'package:mobile_shop/features/profile/view/profile_view.dart';
-import 'package:mobile_shop/features/profile/widgets/profile_q_r_box.dart';
 
 class ProfileLoyalCard extends StatelessWidget {
   const ProfileLoyalCard({super.key});

@@ -18,40 +18,6 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
-/**
- * CustomScrollView(
-          slivers: [
-            AppStatusBar(
-              locationText: 'Москва, ул. Тверская, д. 15',
-              onAddressTap: () {},
-              onNotificationTap: () {},
-              onBookmarkTap: () {},
-              onSearchTap: () {},
-            ),
-            AppClubCard(onTileTap: () {}),
-            AppBanner(
-              imageUrls: [
-                'https://example.com/image1.jpg',
-                'https://example.com/image2.jpg',
-                'https://example.com/image3.jpg',
-              ],
-              onButtonPressed: () {},
-              onImageTap: () {},
-            ),
-            AppSlider(sliderUrl: [], sliderCount: 5),
-            AppCarousel(promoItems: buildPromoItems()),
-            AppRecommendedList(title: 'Рекомендуемое', itemCount: 5),
-            SliverPadding(padding: EdgeInsets.only(bottom: 10)),
-            AppBestseller(itemCount: 5),
-            SliverPadding(padding: EdgeInsets.only(bottom: 20)),
-            AppCategoryGrid(),
-            SliverPadding(padding: EdgeInsets.only(bottom: 20)),
-            AppNewArrivalsList(itemCount: 6),
-            SliverPadding(padding: EdgeInsets.only(bottom: 20)),
-          ],
-        );
- */
 List<Widget> buildPromoItems() {
   return [
     // Example Banner 1

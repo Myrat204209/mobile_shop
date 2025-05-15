@@ -1,13 +1,6 @@
-import 'dart:developer';
-
 import 'package:app_ui/app_ui.dart';
-import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:mobile_shop/features/profile/profile.dart';
-import 'package:mobile_shop/features/profile/widgets/profile_details_tile.dart';
-import 'package:mobile_shop/features/profile/widgets/profile_loyal_card.dart';
-import 'package:mobile_shop/features/profile/widgets/profile_settings_tile.dart';
-import 'package:mobile_shop/features/profile/widgets/profile_status_bar.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
