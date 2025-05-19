@@ -33,6 +33,7 @@ extension WidgetCenterX on Widget {
   Widget centralize() => Center(child: this);
 }
 
+
 extension WidgetColorX on Widget {
   Widget colorize(Color color) => ColoredBox(color: color, child: this);
 }
