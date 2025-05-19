@@ -10,7 +10,7 @@ class BeveragesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppStickyHeaderList(
       onPressed: () {
-        context.pushRoute(ProductDetailsRoute());
+        context.navigateTo(ProductDetailsRoute());
       },
     );
   }

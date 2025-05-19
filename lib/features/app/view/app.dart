@@ -20,7 +20,8 @@ class App extends StatelessWidget {
     final connectivityBloc = ConnectivityBloc(connectivity: _connectivity);
     final preloaderBloc = PreloaderBloc(
       preloaderRepository: _preloaderRepository,
-    )..add(PreloaderLoaded());
+    );
+    // ..add(PreloaderLoaded());
     // ..add(ConnectivityObserve());
     return MultiBlocProvider(
       providers: [

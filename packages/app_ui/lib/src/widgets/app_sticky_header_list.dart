@@ -128,8 +128,10 @@ class AppStickyHeaderList extends StatelessWidget {
                     int index,
                   ) {
                     final product = category.products[index];
-                    return ProductDetailsCard(onProductTapped: onPressed, product: product);
-
+                    return ProductDetailsCard(
+                      onProductTapped: onPressed,
+                      product: product,
+                    );
                   }, childCount: category.products.length),
                 ),
               ),
@@ -152,13 +154,12 @@ class ProductDetailsCard extends StatelessWidget {
   final VoidCallback onProductTapped;
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 1.0,
-
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onProductTapped,
+    return InkWell(
+      onTap: onProductTapped,
+      child: Card(
+        elevation: 1.0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        clipBehavior: Clip.antiAlias,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
