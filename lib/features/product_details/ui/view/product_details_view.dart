@@ -47,6 +47,7 @@ class ProductDetailsView extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               shape: RoundedRectangleBorder(borderRadius: kCircular10Border),
               backgroundColor: AppColors.mainAccent,
+              minimumSize: const Size(350, 50),
             ),
             child: Text(
               'Добавить в корзину',
