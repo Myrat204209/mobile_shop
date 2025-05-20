@@ -134,30 +134,33 @@ class ProductDetailsView extends StatelessWidget {
                       ],
                     ).paddingSymmetric(vertical: 10),
                   ),
+                  Text(
+                    'Похожие товары',
+                    style: AppTextStyle.text().pageTitleBold(),
+                  ),
+
+                  AspectRatio(
+                    aspectRatio: 45 / 30,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 10,
+                      itemBuilder:
+                          (context, index) => AspectRatio(
+                            aspectRatio: 10 / 15,
+                            child: ProductDetailsCard(
+                              product: Product(
+                                name: 'name',
+                                price: 'asda',
+                                imageUrl: 'asad',
+                              ),
+                              onProductTapped: () {},
+                            ),
+                          ).paddingOnly(right: 10),
+                    ),
+                  ),
                 ],
               ),
             ).paddingSymmetric(horizontal: 15),
-          ),
-          Text('Похожие товары', style: AppTextStyle.text().pageTitleBold()),
-
-          Expanded(
-            child: AspectRatio(
-              aspectRatio: 10 / 11,
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: 10,
-                itemBuilder:
-                    (context, index) => ProductDetailsCard(
-                      product: Product(
-                        name: 'name',
-                        price: 'asda',
-                        imageUrl: 'asad',
-                      ),
-                      onProductTapped: () {},
-                    ),
-              ),
-            ),
           ),
         ],
       ),
