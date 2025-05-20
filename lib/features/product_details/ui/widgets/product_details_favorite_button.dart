@@ -4,58 +4,30 @@ import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsFavoriteButton extends StatelessWidget {
-  const ProductDetailsFavoriteButton({
-    super.key,
-  });
+  const ProductDetailsFavoriteButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: AppColors.iconColor.withAlpha(10),
-        borderRadius: kCircular10Border,
+    return OutlinedButton(
+      onPressed: () {},
+      style: OutlinedButton.styleFrom(
+        shape: RoundedRectangleBorder(borderRadius: kCircular15Border),
+        padding: EdgeInsets.symmetric(vertical: 2),
+        side: BorderSide(color: AppColors.majorAccent, width: 2),
       ),
       child: Row(
+        spacing: 10,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            Icons.star_rounded,
-            color: Colors.yellow,
-            size: 35,
-          ),
-          Text('4.3', style: AppTextStyle.text().titleBold()),
-          SizedBox(width: 15),
-          Icon(
-            Icons.chat_rounded,
-            color: AppColors.iconColor.withAlpha(70),
-          ),
-          SizedBox(width: 5),
+          Icon(Icons.favorite_rounded, color: AppColors.majorAccent, size: 25),
           Text(
-            '13 отзывов',
-            style: AppTextStyle.text().md().semiBold().withColor(
-              AppColors.iconColor.withValues(alpha: 0.7),
-            ),
-          ),
-          Spacer(),
-          OutlinedButton(
-            onPressed: () {},
-            style: OutlinedButton.styleFrom(
-              backgroundColor: AppColors.mainAccent,
-              shape: RoundedRectangleBorder(
-                borderRadius: kCircular15Border,
-              ),
-              side: BorderSide.none,
-            ),
-    
-            child: Text(
-              'Оценыть',
-              style: AppTextStyle.text()
-                  .title()
-                  .semiBold()
-                  .withColor(Colors.white),
+            'Выбрать любимым товаром',
+            style: AppTextStyle.text().md().lg().semiBold().withColor(
+              AppColors.majorAccent,
             ),
           ),
         ],
-      ).paddingSymmetric(horizontal: 5, vertical: 5),
+      ).paddingSymmetric(vertical: 10),
     );
   }
 }

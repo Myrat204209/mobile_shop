@@ -1,10 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:developer';
-
 import 'package:app_ui/app_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_shop/features/product_details/ui/widgets/product_details_favorite_button.dart';
+import 'package:mobile_shop/features/product_details/ui/widgets/product_details_rating_row.dart';
 import 'package:mobile_shop/features/product_details/ui/widgets/product_details_similar_list.dart';
 import 'package:mobile_shop/features/product_details/ui/widgets/product_details_tag.dart';
 
@@ -60,37 +59,7 @@ class ProductDetailsView extends StatelessWidget {
                     style: AppTextStyle.text().xl().bold(),
                   ),
                   ProductDetailsFavoriteButton(),
-                  OutlinedButton(
-                    onPressed: () {
-                      log('asdas');
-                    },
-                    style: OutlinedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: kCircular15Border,
-                      ),
-                      padding: EdgeInsets.symmetric(vertical: 2),
-                      side: BorderSide(color: AppColors.majorAccent, width: 2),
-                    ),
-                    child: Row(
-                      spacing: 10,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.favorite_rounded,
-                          color: AppColors.majorAccent,
-                          size: 25,
-                        ),
-                        Text(
-                          'Выбрать любимым товаром',
-                          style: AppTextStyle.text()
-                              .md()
-                              .lg()
-                              .semiBold()
-                              .withColor(AppColors.majorAccent),
-                        ),
-                      ],
-                    ).paddingSymmetric(vertical: 10),
-                  ),
+                  ProductDetailsRatingRow(),
 
                   ProductDetailsSimilarList(),
                 ],
