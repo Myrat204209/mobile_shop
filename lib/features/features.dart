@@ -1,7 +1,7 @@
 export 'app/app.dart';
 export 'home/home.dart';
 export 'profile/profile.dart';
-export 'beverages/beverages.dart';
+// export 'beverages/beverages.dart';
 export 'discount/discount.dart';
 export 'categories/categories.dart';
 export 'favorites/favorites.dart';
