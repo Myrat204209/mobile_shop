@@ -4,6 +4,9 @@ import 'dart:developer';
 import 'package:app_ui/app_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_shop/features/product_details/ui/widgets/product_details_favorite_button.dart';
+import 'package:mobile_shop/features/product_details/ui/widgets/product_details_similar_list.dart';
+import 'package:mobile_shop/features/product_details/ui/widgets/product_details_tag.dart';
 
 class ProductDetailsView extends StatelessWidget {
   const ProductDetailsView({super.key});
@@ -56,53 +59,7 @@ class ProductDetailsView extends StatelessWidget {
                     'Томаты сливочных Круглое лето 600г',
                     style: AppTextStyle.text().xl().bold(),
                   ),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: AppColors.iconColor.withAlpha(10),
-                      borderRadius: kCircular10Border,
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.star_rounded,
-                          color: Colors.yellow,
-                          size: 35,
-                        ),
-                        Text('4.3', style: AppTextStyle.text().titleBold()),
-                        SizedBox(width: 15),
-                        Icon(
-                          Icons.chat_rounded,
-                          color: AppColors.iconColor.withAlpha(70),
-                        ),
-                        SizedBox(width: 5),
-                        Text(
-                          '13 отзывов',
-                          style: AppTextStyle.text().md().semiBold().withColor(
-                            AppColors.iconColor.withValues(alpha: 0.7),
-                          ),
-                        ),
-                        Spacer(),
-                        OutlinedButton(
-                          onPressed: () {},
-                          style: OutlinedButton.styleFrom(
-                            backgroundColor: AppColors.mainAccent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: kCircular15Border,
-                            ),
-                            side: BorderSide.none,
-                          ),
-
-                          child: Text(
-                            'Оценыть',
-                            style: AppTextStyle.text()
-                                .title()
-                                .semiBold()
-                                .withColor(Colors.white),
-                          ),
-                        ),
-                      ],
-                    ).paddingSymmetric(horizontal: 5, vertical: 5),
-                  ),
+                  ProductDetailsFavoriteButton(),
                   OutlinedButton(
                     onPressed: () {
                       log('asdas');
@@ -134,64 +91,14 @@ class ProductDetailsView extends StatelessWidget {
                       ],
                     ).paddingSymmetric(vertical: 10),
                   ),
-                  Text(
-                    'Похожие товары',
-                    style: AppTextStyle.text().pageTitleBold(),
-                  ),
 
-                  AspectRatio(
-                    aspectRatio: 45 / 30,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 10,
-                      itemBuilder:
-                          (context, index) => AspectRatio(
-                            aspectRatio: 10 / 15,
-                            child: ProductDetailsCard(
-                              product: Product(
-                                name: 'name',
-                                price: 'asda',
-                                imageUrl: 'asad',
-                              ),
-                              onProductTapped: () {},
-                            ),
-                          ).paddingOnly(right: 10),
-                    ),
-                  ),
+                  ProductDetailsSimilarList(),
                 ],
               ),
             ).paddingSymmetric(horizontal: 15),
           ),
         ],
       ),
-    );
-  }
-}
-
-class ProductDetailsTag extends StatelessWidget {
-  const ProductDetailsTag({
-    super.key,
-    required this.text,
-    required this.color,
-    this.textColor,
-  });
-  final String text;
-  final Color color;
-  final Color? textColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        color: color,
-      ),
-      child: Text(
-        text,
-        style: AppTextStyle.text().xs().semiBold().withColor(
-          textColor ?? Colors.white,
-        ),
-      ).paddingSymmetric(vertical: 2, horizontal: 8),
     );
   }
 }
