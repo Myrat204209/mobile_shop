@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:app_ui/app_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +11,7 @@ class ProductDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         spacing: 10,
         children: [
@@ -27,6 +30,7 @@ class ProductDetailsView extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 spacing: 10,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AspectRatio(aspectRatio: 31 / 32, child: FlutterLogo()),
                   Row(
@@ -52,12 +56,108 @@ class ProductDetailsView extends StatelessWidget {
                     'Томаты сливочных Круглое лето 600г',
                     style: AppTextStyle.text().xl().bold(),
                   ),
-                  SizedBox(height: 40, width: 20).colorize(Colors.red),
-                  SizedBox(height: 60, width: 20).colorize(Colors.blue),
-                  SizedBox(height: 500, width: 20).colorize(Colors.black),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: AppColors.iconColor.withAlpha(10),
+                      borderRadius: kCircular10Border,
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.star_rounded,
+                          color: Colors.yellow,
+                          size: 35,
+                        ),
+                        Text('4.3', style: AppTextStyle.text().titleBold()),
+                        SizedBox(width: 15),
+                        Icon(
+                          Icons.chat_rounded,
+                          color: AppColors.iconColor.withAlpha(70),
+                        ),
+                        SizedBox(width: 5),
+                        Text(
+                          '13 отзывов',
+                          style: AppTextStyle.text().md().semiBold().withColor(
+                            AppColors.iconColor.withValues(alpha: 0.7),
+                          ),
+                        ),
+                        Spacer(),
+                        OutlinedButton(
+                          onPressed: () {},
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: AppColors.mainAccent,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: kCircular15Border,
+                            ),
+                            side: BorderSide.none,
+                          ),
+
+                          child: Text(
+                            'Оценыть',
+                            style: AppTextStyle.text()
+                                .title()
+                                .semiBold()
+                                .withColor(Colors.white),
+                          ),
+                        ),
+                      ],
+                    ).paddingSymmetric(horizontal: 5, vertical: 5),
+                  ),
+                  OutlinedButton(
+                    onPressed: () {
+                      log('asdas');
+                    },
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: kCircular15Border,
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 2),
+                      side: BorderSide(color: AppColors.majorAccent, width: 2),
+                    ),
+                    child: Row(
+                      spacing: 10,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.favorite_rounded,
+                          color: AppColors.majorAccent,
+                          size: 25,
+                        ),
+                        Text(
+                          'Выбрать любимым товаром',
+                          style: AppTextStyle.text()
+                              .md()
+                              .lg()
+                              .semiBold()
+                              .withColor(AppColors.majorAccent),
+                        ),
+                      ],
+                    ).paddingSymmetric(vertical: 10),
+                  ),
                 ],
               ),
-            ).paddingSymmetric(horizontal: 10),
+            ).paddingSymmetric(horizontal: 15),
+          ),
+          Text('Похожие товары', style: AppTextStyle.text().pageTitleBold()),
+
+          Expanded(
+            child: AspectRatio(
+              aspectRatio: 10 / 11,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder:
+                    (context, index) => ProductDetailsCard(
+                      product: Product(
+                        name: 'name',
+                        price: 'asda',
+                        imageUrl: 'asad',
+                      ),
+                      onProductTapped: () {},
+                    ),
+              ),
+            ),
           ),
         ],
       ),
@@ -88,7 +188,7 @@ class ProductDetailsTag extends StatelessWidget {
         style: AppTextStyle.text().xs().semiBold().withColor(
           textColor ?? Colors.white,
         ),
-      ).paddingSymmetric(vertical: 1, horizontal: 8),
+      ).paddingSymmetric(vertical: 2, horizontal: 8),
     );
   }
 }
