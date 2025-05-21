@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:app_ui/app_ui.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_shop/features/app/router/router.dart';
 import 'package:mobile_shop/features/product_details/product_details.dart';
 
 class ProductDetailsView extends StatelessWidget {
@@ -12,11 +14,17 @@ class ProductDetailsView extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         Scaffold(
+          appBar: AppBar(
+            actionsPadding: EdgeInsets.only(right: 10),
+            actions: [
+              IconButton(onPressed: () {}, icon: Icon(Icons.ios_share)),
+              IconButton(onPressed: () {}, icon: Icon(Icons.bookmark_border)),
+            ],
+          ),
           backgroundColor: AppColors.iconColor.withValues(alpha: 0.009),
           body: Column(
             spacing: 10,
             children: [
-              ProductDetailsAppBar(),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
@@ -43,7 +51,9 @@ class ProductDetailsView extends StatelessWidget {
         Positioned(
           bottom: 20,
           child: OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              context.router.push(CartRoute());
+            },
 
             style: OutlinedButton.styleFrom(
               shape: RoundedRectangleBorder(borderRadius: kCircular15Border),
