@@ -4,9 +4,7 @@ import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsSimilarList extends StatelessWidget {
-  const ProductDetailsSimilarList({
-    super.key,
-  });
+  const ProductDetailsSimilarList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +15,8 @@ class ProductDetailsSimilarList extends StatelessWidget {
         Text(
           'Похожие товары',
           style: AppTextStyle.text().pageTitleBold(),
-        ),
-    
+        ).paddingSymmetric(vertical: 15),
+
         AspectRatio(
           aspectRatio: 45 / 30,
           child: ListView.builder(
@@ -37,7 +35,7 @@ class ProductDetailsSimilarList extends StatelessWidget {
                   ),
                 ).paddingOnly(right: 10),
           ),
-        ),
+        ).paddingOnly(bottom: 50),
       ],
     );
   }

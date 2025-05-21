@@ -12,7 +12,7 @@ class ProductDetailsView extends StatelessWidget {
       fit: StackFit.expand,
       children: [
         Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.iconColor.withValues(alpha: 0.009),
           body: Column(
             spacing: 10,
             children: [
@@ -41,11 +41,13 @@ class ProductDetailsView extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 10,
+          bottom: 20,
           child: OutlinedButton(
             onPressed: () {},
+
             style: OutlinedButton.styleFrom(
-              shape: RoundedRectangleBorder(borderRadius: kCircular10Border),
+              shape: RoundedRectangleBorder(borderRadius: kCircular15Border),
+              side: BorderSide(color: Colors.transparent),
               backgroundColor: AppColors.mainAccent,
               minimumSize: const Size(350, 50),
             ),
