@@ -6,7 +6,7 @@ part 'preloader_client.g.dart';
 
 @RestApi()
 abstract class PreloaderClient {
-  factory PreloaderClient(Dio dio, {String baseUrl}) = _PreloaderClient;
+  factory PreloaderClient(Dio dio, {String baseUrl, ParseErrorLogger? errorLogger}) = _PreloaderClient;
 
   @GET('/preloader')
   Future<PreloadItem?> getPreloader();

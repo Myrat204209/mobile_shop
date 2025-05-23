@@ -1,6 +1,6 @@
 name: data_provider
 description: "A package which handle 3rd layer data from out."
-version: 0.0.1
+version: 0.2.0
 
 environment:
   sdk: ^3.7.2
@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   dio: ^5.8.0+1
-  talker_dio_logger: ^4.7.6
-  talker_flutter: ^4.7.6
+  talker_dio_logger: ^4.7.9
+  talker_flutter: ^4.7.9
   retrofit: ^4.4.2
   json_annotation: ^4.9.0
 
