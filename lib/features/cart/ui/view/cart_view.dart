@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:app_ui/app_ui.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
@@ -217,7 +219,7 @@ class CartView extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: InkWell(
         onTap: () {
-          print('Promo code section tapped');
+          log('Promo code section tapped');
           // Navigate to promo code screen or open a dialog
         },
         child: Padding(
@@ -250,7 +252,7 @@ class CartView extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey.withAlpha(20),
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, -3), // changes position of shadow
