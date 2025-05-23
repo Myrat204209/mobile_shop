@@ -1,27 +1,21 @@
 import 'package:geolocator/geolocator.dart';
+import 'package:talker_flutter/talker_flutter.dart';
 
-Future<Position> _determinePosition() async {
-  bool serviceEnabled;
-  LocationPermission permission;
+enum LocationPermissionStatus {
+  granted,
+  denied,
+  deniedForever,
+  serviceDisabled,
+  unknown,
+}
 
-  serviceEnabled = await Geolocator.isLocationServiceEnabled();
-  if (!serviceEnabled) {
-    return Future.error('Location services are disabled.');
-  }
+class LocationService {
+  final GeolocatorPlatform _geolocatorPlatform;
+  final Talker? _talker;
 
-  permission = await Geolocator.checkPermission();
-  if (permission == LocationPermission.denied) {
-    permission = await Geolocator.requestPermission();
-    if (permission == LocationPermission.denied) {
-      return Future.error('Location permissions are denied');
-    }
-  }
-
-  if (permission == LocationPermission.deniedForever) {
-    return Future.error(
-      'Location permissions are permanently denied, we cannot request permissions.',
-    );
-  }
-
-  return await Geolocator.getCurrentPosition();
+  LocationService._internal({
+    GeolocatorPlatform? geolocatorPlatform,
+    Talker? talker,
+  }) : _geolocatorPlatform = geolocatorPlatform ?? GeolocatorPlatform.instance,
+       _talker = talker;
 }
