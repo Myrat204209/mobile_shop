@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
@@ -87,6 +88,7 @@ class AppStickyHeaderList extends StatelessWidget {
         slivers: <Widget>[
           const SliverAppBar(
             title: Text('Скидки по карте'),
+            backgroundColor: AppColors.mainAccent,
             pinned: true,
             floating: false,
             actions: [IconButton(icon: Icon(Icons.search), onPressed: null)],

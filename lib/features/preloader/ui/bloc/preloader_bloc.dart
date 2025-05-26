@@ -5,6 +5,7 @@ import 'package:data_provider/data_provider.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:mobile_shop/features/preloader/data/repository/preloader_repository.dart';
+import 'package:mobile_shop/features/preloader/ui/bloc/preloaded_json.dart';
 
 part 'preloader_event.dart';
 part 'preloader_state.dart';
@@ -78,8 +79,14 @@ class PreloaderBloc extends HydratedBloc<PreloaderEvent, PreloaderState> {
       //   ),
       // )
     } catch (error, stackTrace) {
-      emit(state.copyWith(status: PreloaderStatus.failure));
-      addError(error, stackTrace);
+      emit(
+        currentState.copyWith(
+          status: PreloaderStatus.success,
+          preloadItem: PreloadItem.fromJson(preloadedJson), // Clear item on failure
+        ),
+      );
+      // emit(state.copyWith(status: PreloaderStatus.failure));
+      // addError(error, stackTrace);
     }
   }
 
