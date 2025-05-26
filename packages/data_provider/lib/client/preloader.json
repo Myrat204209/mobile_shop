@@ -1,22 +1,16 @@
 {
-    "shopname": "Mobile Shop",
-    "shopguid": "9f2e1a4a-d369-4055-9391-e680e55d7517",
+    "shopName": "Mobile Shop",
+    "shopGuid": "9f2e1a4a-d369-4055-9391-e680e55d7517",
     "modDate": "2025-12-31 00:00:00",
     "pages": [
         {
-            "pageNum": "mainPage",
+            "pageName": "main",
             "modDate": "2025-12-31 00:00:00",
             "widgets": [
                 {
                     "guid": "3d1d7f96-2411-48fa-9ebc-d73943af13f9",
-                    "type": "statusbar",
+                    "type": "statusBar",
                     "position": "1",
-                    "modDate": "2025-12-31 00:00:00"
-                },
-                {
-                    "guid": "fd90f470-72b7-4113-ad5d-258879616b2c",
-                    "type": "search",
-                    "position": "2",
                     "modDate": "2025-12-31 00:00:00"
                 },
                 {
@@ -75,13 +69,13 @@
                 },
                 {
                     "guid": "7ce3d375-8882-4e8b-b039-2653a9ac9e84",
-                    "type": "bestseller",
+                    "type": "bestSeller",
                     "position": "12",
                     "modDate": "2025-12-31 00:00:00"
                 },
                 {
                     "guid": "4a6009b5-7e7e-4757-aa54-32145bb5cb59",
-                    "type": "newarrival",
+                    "type": "newArrival",
                     "position": "13",
                     "modDate": "2025-12-31 00:00:00"
                 },
@@ -93,7 +87,7 @@
                 },
                 {
                     "guid": "7590c241-c64f-4469-8d21-89892c61e972",
-                    "type": "bestseller",
+                    "type": "bestSeller",
                     "position": "15",
                     "modDate": "2025-12-31 00:00:00"
                 },
@@ -106,12 +100,12 @@
             ]
         },
         {
-            "pageNum": "catPage",
+            "pageNum": "category",
             "modDate": "2025-12-31 00:00:00",
             "widgets": [
                 {
                     "guid": "2c920f89-cc59-4c04-b566-7a6b5908f9a1",
-                    "type": "statusbar",
+                    "type": "statusBar",
                     "position": "1",
                     "modDate": "2025-12-31 00:00:00"
                 },
@@ -119,12 +113,6 @@
                     "guid": "1b9268bc-cf44-4b2b-bb85-df8ae47e350a",
                     "type": "search",
                     "position": "2",
-                    "modDate": "2025-12-31 00:00:00"
-                },
-                {
-                    "guid": "080d0c96-ccef-433a-a791-0c60b5c0b7d1",
-                    "type": "myfavorites",
-                    "position": "3",
                     "modDate": "2025-12-31 00:00:00"
                 },
                 {
@@ -160,12 +148,12 @@
             ]
         },
         {
-            "pageNum": "promoPage",
+            "pageNum": "promo",
             "modDate": "2025-12-31 00:00:00",
             "widgets": [
                 {
                     "guid": "232f28f3-6886-4ca2-a7fe-03c9806353cb",
-                    "type": "statusbar",
+                    "type": "statusBar",
                     "position": "1",
                     "modDate": "2025-12-31 00:00:00"
                 },
