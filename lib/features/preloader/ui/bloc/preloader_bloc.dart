@@ -78,6 +78,7 @@ class PreloaderBloc extends HydratedBloc<PreloaderEvent, PreloaderState> {
       //     status: PreloaderStatus.success,
       //   ),
       // )
+    // ignore: unused_catch_stack
     } catch (error, stackTrace) {
       emit(
         currentState.copyWith(

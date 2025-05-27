@@ -13,3 +13,4 @@ export 'search/search.dart';
 export 'notifications/notifications.dart';
 export 'preloader/preloader.dart';
 export 'product_details/product_details.dart';
+export 'menu/menu.dart';
