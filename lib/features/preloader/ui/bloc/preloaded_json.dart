@@ -5,14 +5,9 @@ const preloadedJson = {
   "pages": [
     {
       "pageName": "main",
+      "position": 1,
       "modDate": "2025-12-31 00:00:00",
       "widgets": [
-        {
-          "guid": "3d1d7f96-2411-48fa-9ebc-d73943af13f9",
-          "type": "statusBar",
-          "position": 1,
-          "modDate": "2025-12-31 00:00:00",
-        },
         {
           "guid": "05c10f61-a61d-407d-a678-d1b1cc5b8baf",
           "type": "clubCard",
@@ -101,14 +96,9 @@ const preloadedJson = {
     },
     {
       "pageName": "category",
+      "position": 2,
       "modDate": "2025-12-31 00:00:00",
       "widgets": [
-        {
-          "guid": "2c920f89-cc59-4c04-b566-7a6b5908f9a1",
-          "type": "statusBar",
-          "position": 1,
-          "modDate": "2025-12-31 00:00:00",
-        },
         {
           "guid": "3fecc4a2-5ba0-4347-82cf-4113b99d7d81",
           "type": "carousel",
@@ -142,15 +132,29 @@ const preloadedJson = {
       ],
     },
     {
-      "pageName": "promo",
+      "pageName": "sets",
+      "position": 3,
       "modDate": "2025-12-31 00:00:00",
       "widgets": [
         {
-          "guid": "232f28f3-6886-4ca2-a7fe-03c9806353cb",
-          "type": "statusBar",
-          "position": 1,
+          "guid": "e40d3df7-53da-45e5-a66f-e3d532828404",
+          "type": "slider",
+          "position": 3,
           "modDate": "2025-12-31 00:00:00",
         },
+        {
+          "guid": "ac261e16-50cc-4ef0-933a-4d746d5e38f9",
+          "type": "recommended",
+          "position": 4,
+          "modDate": "2025-12-31 00:00:00",
+        },
+      ],
+    },
+    {
+      "pageName": "promo",
+      "position": 4,
+      "modDate": "2025-12-31 00:00:00",
+      "widgets": [
         {
           "guid": "e40d3df7-53da-45e5-a66f-e3d532828404",
           "type": "slider",

@@ -3,7 +3,6 @@ import 'package:json_annotation/json_annotation.dart';
 part 'widget_item.g.dart';
 
 enum WidgetType {
-  statusBar,
   clubCard,
   banner,
   recommended,

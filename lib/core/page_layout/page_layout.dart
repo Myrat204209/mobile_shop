@@ -28,15 +28,6 @@ class PageLayout extends StatelessWidget {
 
   Widget _buildWidgetByType(BuildContext context, WidgetItem item) {
     switch (item.type) {
-      case WidgetType.statusBar:
-        return AppStatusBar(
-          onAddressTap: () {},
-          onNotificationTap: () {},
-          onBookmarkTap: () {},
-          onSearchTap: () {},
-        );
-      case WidgetType.search:
-        return AppSearchBar();
       case WidgetType.clubCard:
         return AppClubCard(onTileTap: () {});
       case WidgetType.banner:
