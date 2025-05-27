@@ -28,10 +28,14 @@ class AppBottomNavigation extends StatelessWidget {
           (context, child, animation) =>
               FadeTransition(opacity: animation, child: child),
       routes: [
-        HomeRoute(),
-        CategoriesRoute(),
-        BeveragesRoute(),
-        DiscountRoute(),
+        MenuOneTab(),
+        MenuTwoTab(),
+        MenuThreeTab(),
+        MenuFourTab(),
+        // HomeRoute(),
+        // CategoriesRoute(),
+        // BeveragesRoute(),
+        // DiscountRoute(),
         ProfileRoute(),
       ],
 
