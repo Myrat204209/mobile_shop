@@ -1,5 +1,4 @@
-import 'package:app_ui/app_ui.dart'
-    show AppColors, AppStatusBar, kCircular20Border;
+import 'package:app_ui/app_ui.dart' show AppColors, kCircular20Border;
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
@@ -8,12 +7,12 @@ import 'package:mobile_shop/core/core.dart';
 import 'package:mobile_shop/features/features.dart';
 
 // Your bottomNavigationBarItems list remains the same
-List<Map<String, IconData>> bottomNavigationBarItems = [
-  {'Начало': Icons.home},
-  {'Каталог': Icons.grid_view},
-  {'Напитки': Icons.emoji_food_beverage_rounded},
-  {'Акции': Icons.discount_rounded},
-  {'Профиль': CupertinoIcons.smiley},
+const List<IconData> bottomNavigationBarItems = [
+  Icons.home,
+  Icons.grid_view,
+  Icons.emoji_food_beverage_rounded,
+  Icons.discount_rounded,
+  CupertinoIcons.smiley,
 ];
 
 @RoutePage()
@@ -25,20 +24,6 @@ class AppBottomNavigation extends StatelessWidget {
     return AutoTabsScaffold(
       homeIndex: 0,
 
-      appBarBuilder: (context, tabsRouter) {
-        if (tabsRouter.activeIndex != 4) {
-          return AppStatusBar(
-            onAddressTap: () {},
-            onNotificationTap: () {},
-            onBookmarkTap: () {},
-            onSearchTap: () {},
-          );
-        }
-        return const PreferredSize(
-          preferredSize: Size.fromHeight(0),
-          child: SizedBox.shrink(),
-        );
-      },
       transitionBuilder:
           (context, child, animation) =>
               FadeTransition(opacity: animation, child: child),
@@ -52,36 +37,52 @@ class AppBottomNavigation extends StatelessWidget {
 
       backgroundColor: AppColors.bgMain,
       bottomNavigationBuilder: (context, tabsRouter) {
-        return NavigationBar(
-          indicatorColor: Colors.transparent,
-          selectedIndex: tabsRouter.activeIndex,
-          onDestinationSelected: (index) {
-            if (tabsRouter.activeIndex != index) {
-              tabsRouter.setActiveIndex(index);
+        return BlocBuilder<PreloaderBloc, PreloaderState>(
+          builder: (context, state) {
+            if (state.status == PreloaderStatus.success ||
+                state.preloadItem != null) {
+              return NavigationBar(
+                indicatorColor: Colors.transparent,
+                selectedIndex: tabsRouter.activeIndex,
+                onDestinationSelected: (index) {
+                  if (tabsRouter.activeIndex != index) {
+                    tabsRouter.setActiveIndex(index);
+                  } else {
+                    tabsRouter
+                        .innerRouterOf<StackRouter>(tabsRouter.current.name)
+                        ?.popUntilRoot();
+                  }
+                },
+                destinations: [
+                  ...bottomNavigationBarItems.map((icon) {
+                    int destinationIndex = bottomNavigationBarItems.indexOf(
+                      icon,
+                    );
+                    return NavigationDestinationIcon(
+                      tabsRouterIndex: tabsRouter.activeIndex,
+                      destinationIndex: destinationIndex,
+                      icon: icon,
+                      label:
+                          destinationIndex < 4
+                              ? state.preloadItem!.pages
+                                  .firstWhere(
+                                    (element) =>
+                                        element.position ==
+                                        destinationIndex + 1,
+                                  )
+                                  .pageName
+                              : 'Профиль',
+                    );
+                  }),
+                ],
+                height: 56,
+                indicatorShape: null,
+                backgroundColor: Colors.white,
+              );
             } else {
-              tabsRouter
-                  .innerRouterOf<StackRouter>(tabsRouter.current.name)
-                  ?.popUntilRoot();
+              return const SizedBox.shrink();
             }
           },
-          destinations: [
-            ...bottomNavigationBarItems.asMap().entries.map((entry) {
-              int destinationIndex = entry.key;
-              Map<String, IconData> itemMap = entry.value;
-              String label = itemMap.keys.first;
-              IconData icon = itemMap.values.first;
-
-              return NavigationDestinationIcon(
-                tabsRouterIndex: tabsRouter.activeIndex,
-                destinationIndex: destinationIndex,
-                icon: icon,
-                label: label,
-              );
-            }),
-          ],
-          height: 56,
-          indicatorShape: null,
-          backgroundColor: Colors.white,
         );
       },
       floatingActionButtonBuilder: (context, tabsRouter) {

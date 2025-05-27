@@ -14,6 +14,13 @@ class PageLayout extends StatelessWidget {
       ..sort((a, b) => a.position.compareTo(b.position));
     return CustomScrollView(
       slivers: [
+        AppStatusBar(
+          locationText: 'София, България',
+          onAddressTap: () {},
+          onNotificationTap: () {},
+          onBookmarkTap: () {},
+          onSearchTap: () {},
+        ),
         ...sortedWidgets.map((widgetItem) {
           final contentWidget = _buildWidgetByType(context, widgetItem);
 

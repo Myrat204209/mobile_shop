@@ -25,6 +25,7 @@ class _AppViewState extends State<AppView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      
       debugShowCheckedModeBanner: false,
       theme: AppTheme().themeData,
       themeMode: ThemeMode.system,

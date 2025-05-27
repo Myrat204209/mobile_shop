@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:marquee/marquee.dart';
 
-class AppStatusBar extends StatelessWidget implements PreferredSizeWidget {
+class AppStatusBar extends StatelessWidget {
   const AppStatusBar({
     super.key,
     this.locationText,
@@ -63,8 +63,6 @@ class AppStatusBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  @override
-  Size get preferredSize => const Size(double.maxFinite, 100);
 }
 
 class AppBarMarqueeText extends StatelessWidget {
