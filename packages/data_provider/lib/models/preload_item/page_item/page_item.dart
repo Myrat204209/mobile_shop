@@ -4,14 +4,15 @@ import 'widget_item/widget_item.dart';
 
 part 'page_item.g.dart';
 
-enum PageType { main, category, promo }
 
 @JsonSerializable(explicitToJson: true)
 class PageItem {
-  final PageType pageName;
+  final String pageName;
+  final int position;
   final DateTime modDate;
   final List<WidgetItem> widgets;
   const PageItem({
+    required this.position,
     required this.pageName,
     required this.modDate,
     required this.widgets,

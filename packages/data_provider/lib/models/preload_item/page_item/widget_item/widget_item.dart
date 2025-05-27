@@ -4,7 +4,6 @@ part 'widget_item.g.dart';
 
 enum WidgetType {
   statusBar,
-  search,
   clubCard,
   banner,
   recommended,
