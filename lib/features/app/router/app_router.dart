@@ -16,17 +16,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: MenuTwoTab.page, path: 'menu/two'),
         AutoRoute(page: MenuThreeTab.page, path: 'menu/three'),
         AutoRoute(page: MenuFourTab.page, path: 'menu/four'),
-        // AutoRoute(page: HomeRoute.page),
-        // AutoRoute(page: CategoriesRoute.page),
-        // AutoRoute(
-        //   page: BeveragesRoute.page,
-        //   children: [
-        //     AutoRoute(page: BeveragesView.page,initial: true),
-        //     AutoRoute(page: ProductDetailsRoute.page),
-        //   ],
-        // ),
-        // AutoRoute(page: DiscountRoute.page),
-        AutoRoute(page: ProfileRoute.page,path: 'menu/five'),
+        AutoRoute(page: ProfileRoute.page, path: 'menu/five'),
       ],
     ),
     AutoRoute(page: NotificationsRoute.page),
