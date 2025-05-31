@@ -2,6 +2,8 @@
 import 'package:app_ui/app_ui.dart';
 import 'package:data_provider/data_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile_shop/features/app/bloc/location_bloc.dart';
 import 'package:mobile_shop/features/home/home.dart';
 
 class PageLayout extends StatelessWidget {
@@ -12,14 +14,19 @@ class PageLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     final sortedWidgets = List<WidgetItem>.from(widgets)
       ..sort((a, b) => a.position.compareTo(b.position));
+
     return CustomScrollView(
       slivers: [
-        AppStatusBar(
-          locationText: 'София, България',
-          onAddressTap: () {},
-          onNotificationTap: () {},
-          onBookmarkTap: () {},
-          onSearchTap: () {},
+        BlocBuilder<LocationBloc, LocationState>(
+          builder: (context, state) {
+            return AppStatusBar(
+              locationText: state.address ?? 'Loading location...',
+              onAddressTap: () {},
+              onNotificationTap: () {},
+              onBookmarkTap: () {},
+              onSearchTap: () {},
+            );
+          },
         ),
         ...sortedWidgets.map((widgetItem) {
           final contentWidget = _buildWidgetByType(context, widgetItem);

@@ -23,6 +23,7 @@ class AppBottomNavigation extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       homeIndex: 0,
+
       transitionBuilder:
           (context, child, animation) =>
               FadeTransition(opacity: animation, child: child),
@@ -31,6 +32,10 @@ class AppBottomNavigation extends StatelessWidget {
         MenuTwoTab(),
         MenuThreeTab(),
         MenuFourTab(),
+        // HomeRoute(),
+        // CategoriesRoute(),
+        // BeveragesRoute(),
+        // DiscountRoute(),
         ProfileRoute(),
       ],
 
